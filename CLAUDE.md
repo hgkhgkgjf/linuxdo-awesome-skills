@@ -69,6 +69,10 @@
 - `karpathy-llm-wiki` 对外介绍重点应放在“Karpathy LLM 学习资料、raw/ 原始资料、wiki/ Markdown 知识库、sources.yml、coverage.yml、带引用问答和 lint 健康检查”。它不是 PPT/图片/前端生成技能，应单独归类为知识管理。
 - 第十条收录是 `graphify`，来源于 Linux.do 话题 `1907342` 和 GitHub 项目 `safishamsi/graphify`，内容基于用户提供的来源链接、原项目 README 与 `graphify/skill.md` 综合提炼，不保存帖子原文。
 - `graphify` 对外介绍重点应放在“代码库/多模态资料转 Neo4j 知识图谱、GraphRAG、Gemini、图谱可视化、架构问答”。它和 `karpathy-llm-wiki` 都属于知识管理，但 `karpathy-llm-wiki` 是 Markdown wiki，`graphify` 是 Neo4j 图谱和 GraphRAG。
+- 第十一条收录是 `wechat-article-reader`，推荐来源于 Linux.do 话题 `1956732` 的第 34 楼，GitHub 项目为 `jeffchan813/wechat-article-reader`，内容基于用户提供的推荐链接、原项目 README 与 `SKILL.md` 综合提炼，不保存帖子原文。
+- `wechat-article-reader` 对外介绍重点应放在“微信公众号文章读取、curl 模拟浏览器请求、Python 正则提取 js_content、摘要/全文/图片链接/原始 HTML 输出、轻量无浏览器依赖”。它和 `karpathy-llm-wiki` 都涉及内容整理，但本条只负责单篇或批量微信公众号文章提取；它和 `graphify` 的区别是后者面向 Neo4j 图谱和 GraphRAG。
+- 第十二条收录是 `GenericAgent`，来源于 Linux.do 话题 `1962519` 和 GitHub 项目 `lsdefine/GenericAgent`，内容基于 Linux.do 话题 JSON、GitHub 仓库元数据与原项目 README 综合提炼，不保存帖子原文。
+- `GenericAgent` 必须作为“元技能与方法论”展示：它不包含普通意义上的可安装 skill 本体，而是主张 Agent 在对话和任务执行过程中自我生成、沉淀和迭代技能。对外介绍重点应放在“Self-evolving Agent、任务后反思沉淀 SOP/Skill、分层记忆、技能树、少量原子工具、低 token 开销、真实浏览器/本地系统控制”。
 - 仓库对外内容默认使用中文；底层 JSON 字段名保持英文，避免后续脚本维护成本升高。
 - 后续优先在现有 JSON 结构上补字段和演进，不创建平行台账文件。
 - 结构化数据中的 `skill_description` 用于保存可展示的原始 skill description，`display_label` 统一为 `description`，服务 README 和未来静态页扩展。

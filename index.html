@@ -463,11 +463,11 @@
       </div>
       <div class="stats" aria-label="索引统计">
         <div class="stat">
-          <strong id="skill-count">10</strong>
+          <strong id="skill-count">12</strong>
           <span>已整理技能</span>
         </div>
         <div class="stat">
-          <strong id="source-count">10</strong>
+          <strong id="source-count">12</strong>
           <span>论坛来源已关联</span>
         </div>
       </div>
@@ -501,6 +501,12 @@
         <button class="chip" type="button" data-filter="LLM 学习" aria-pressed="false">LLM 学习</button>
         <button class="chip" type="button" data-filter="知识图谱" aria-pressed="false">知识图谱</button>
         <button class="chip" type="button" data-filter="GraphRAG" aria-pressed="false">GraphRAG</button>
+        <button class="chip" type="button" data-filter="微信公众号" aria-pressed="false">微信公众号</button>
+        <button class="chip" type="button" data-filter="文章读取" aria-pressed="false">文章读取</button>
+        <button class="chip" type="button" data-filter="内容提取" aria-pressed="false">内容提取</button>
+        <button class="chip" type="button" data-filter="元技能" aria-pressed="false">元技能</button>
+        <button class="chip" type="button" data-filter="技能树" aria-pressed="false">技能树</button>
+        <button class="chip" type="button" data-filter="Self-evolving Agent" aria-pressed="false">自进化</button>
       </div>
     </section>
 
@@ -650,6 +656,34 @@
         repository: "https://github.com/safishamsi/graphify",
         stars: "https://github.com/safishamsi/graphify/stargazers",
         source: "https://linux.do/t/topic/1907342",
+        forumIcon: "https://cdn3.ldstatic.com/optimized/4X/c/c/d/ccd8c210609d498cbeb3d5201d4c259348447562_2_32x32.png"
+      },
+      {
+        name: "wechat-article-reader",
+        author: "jeffchan813",
+        oneLiner: "读取微信公众号文章链接，提取正文、摘要、图片链接或原始 HTML，适合快速理解和归档公众号内容。",
+        tags: ["微信公众号", "文章读取", "内容提取", "curl", "Python", "摘要提取", "图片链接"],
+        prerequisites: ["curl 命令行工具", "Python 3.6+", "可访问的微信公众号文章链接", "网络可访问 mp.weixin.qq.com"],
+        useCases: ["读取微信公众号文章正文", "快速生成文章摘要", "提取文章图片链接", "保存原始 HTML 用于调试", "批量处理公众号文章链接"],
+        limitations: ["微信页面结构或反爬策略变化可能导致提取失败", "只适合可访问的微信公众号文章链接", "复杂排版、视频、小程序卡片等内容可能丢失"],
+        detail: "docs/skills/wechat-article-reader.md",
+        repository: "https://github.com/jeffchan813/wechat-article-reader",
+        stars: "https://github.com/jeffchan813/wechat-article-reader/stargazers",
+        source: "https://linux.do/t/topic/1956732/34",
+        forumIcon: "https://cdn3.ldstatic.com/optimized/4X/c/c/d/ccd8c210609d498cbeb3d5201d4c259348447562_2_32x32.png"
+      },
+      {
+        name: "GenericAgent",
+        author: "lsdefine",
+        oneLiner: "自进化 Agent 框架，不提供单个可安装 skill，而是让 Agent 自动沉淀 SOP、生成技能树并迭代能力。",
+        tags: ["元技能", "Self-evolving Agent", "技能树", "反思沉淀", "记忆系统", "Agent 框架", "浏览器自动化"],
+        prerequisites: ["Python 3.11/3.12", "LLM API Key", "本地终端与文件系统权限", "可选真实浏览器/桌面端环境"],
+        useCases: ["研究 Agent 如何自我沉淀技能", "构建个人长期技能树和 SOP 记忆", "长程任务自动化与经验复用", "真实浏览器和本地系统控制实验", "探索低 token 开销的 Agent 设计"],
+        limitations: ["它不是单条开箱即用的 skill，本索引将其作为元技能/方法论收录", "部署和使用门槛高于普通脚本型 skill", "自我生成的技能质量依赖任务验证和反思质量"],
+        detail: "docs/skills/generic-agent.md",
+        repository: "https://github.com/lsdefine/GenericAgent",
+        stars: "https://github.com/lsdefine/GenericAgent/stargazers",
+        source: "https://linux.do/t/topic/1962519",
         forumIcon: "https://cdn3.ldstatic.com/optimized/4X/c/c/d/ccd8c210609d498cbeb3d5201d4c259348447562_2_32x32.png"
       }
     ];

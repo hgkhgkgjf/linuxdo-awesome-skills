@@ -1,0 +1,78 @@
+{
+  "id": "generic-agent",
+  "name": "GenericAgent",
+  "author": "lsdefine",
+  "language": "zh-CN",
+  "repository": "https://github.com/lsdefine/GenericAgent",
+  "detail_page": "docs/skills/generic-agent.md",
+  "verified_at": "2026-06-09",
+  "verification_sources": [
+    "https://linux.do/t/topic/1962519",
+    "https://github.com/lsdefine/GenericAgent",
+    "https://github.com/lsdefine/GenericAgent/blob/main/README.md",
+    "https://api.github.com/repos/lsdefine/GenericAgent"
+  ],
+  "source": {
+    "type": "linux_do_topic",
+    "topic_id": "1962519",
+    "topic_url": "https://linux.do/t/topic/1962519",
+    "access_state": "publicly accessible during curation",
+    "captured_from": "summary extracted from Linux.do topic JSON, repository metadata, and original README",
+    "captured_at": "2026-06-09"
+  },
+  "tags": [
+    "元技能",
+    "Self-evolving Agent",
+    "技能树",
+    "反思沉淀",
+    "记忆系统",
+    "Agent 框架",
+    "浏览器自动化"
+  ],
+  "one_liner": "一个自进化 Agent 框架，不提供单个可安装 skill，而是让 Agent 在任务执行中自动沉淀 SOP、生成技能树并持续迭代能力。",
+  "prerequisites": [
+    "Python 3.11/3.12",
+    "LLM API Key",
+    "本地终端与文件系统权限",
+    "可选真实浏览器/桌面端环境"
+  ],
+  "skill_description": {
+    "source": "GitHub repository description",
+    "language": "zh-CN",
+    "translated_from": "en",
+    "display_label": "description",
+    "text": "自进化 Agent：从 3.3K 行种子代码生长出技能树，以 6 倍更少的 token 消耗实现完整系统控制。"
+  },
+  "use_cases": [
+    "研究 Agent 如何自我沉淀技能",
+    "构建个人长期技能树和 SOP 记忆",
+    "长程任务自动化与经验复用",
+    "真实浏览器和本地系统控制实验",
+    "对比 Claude Code、OpenClaw 等 Agent 架构",
+    "探索低 token 开销的 Agent 设计"
+  ],
+  "summary": "GenericAgent 是一个极简自进化 Agent 框架：核心主张不是预置大量 skill，而是用少量原子工具、分层记忆和执行循环，让 Agent 在完成任务后把执行路径自动沉淀为 Skill/SOP，逐步形成个人技能树。它本身不是一个单独可安装的 skill 包，而是关于 Agent 如何在对话和任务过程中自我产生、复用和迭代技能的框架与方法论。",
+  "workflow": [
+    "准备 Python 3.11/3.12、LLM API Key 和本地运行环境",
+    "启动 GenericAgent 的桌面端、TUI 或其他前端",
+    "Agent 使用少量原子工具感知环境、读写文件、执行代码、控制浏览器或系统",
+    "首次遇到新任务时自主探索、安装依赖、编写脚本、调试和验证",
+    "任务完成后通过反思机制把执行路径沉淀为 Skill/SOP 或长期记忆",
+    "后续遇到相似任务时从记忆和技能树中召回并复用",
+    "随着使用时间增长，形成越来越个人化的技能树和任务经验库"
+  ],
+  "limitations": [
+    "它不是单条开箱即用的 skill，本索引将其作为元技能/方法论收录",
+    "部署和使用门槛高于普通脚本型 skill，需要配置模型、环境和权限",
+    "自我生成的技能质量依赖任务验证、反思质量和长期维护纪律",
+    "涉及真实浏览器、桌面、文件系统和外部服务时，需要谨慎控制权限和安全边界",
+    "更适合研究和构建 Agent 工作流，不适合作为单一任务的轻量工具"
+  ],
+  "notes": [
+    "特别备注：该项目不包含普通意义上的 skill 本体；它主张 Agent 在对话和任务执行过程中自我生成、沉淀和迭代技能。",
+    "该项目与本索引其他条目不同：其他条目多是具体任务技能，GenericAgent 是让技能树持续生长的 Agent 框架和方法论。",
+    "它与 wechat-article-reader 这类轻量脚本型技能不同；后者解决单一任务，GenericAgent 关注任务经验如何变成可复用能力。",
+    "它与 graphify、karpathy-llm-wiki 都涉及知识/记忆组织，但 GenericAgent 的重点是 Agent 执行循环、分层记忆和 Skill/SOP 自进化。",
+    "帖子原文未收录到仓库，当前记录仅保留提炼后的结构化信息。"
+  ]
+}

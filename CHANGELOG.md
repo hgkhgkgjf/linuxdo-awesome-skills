@@ -22,5 +22,7 @@
 - 新增第八条 `GordenPPTSkill`，补充结构化数据、详情页、README 清单和静态页展示
 - 新增第九条 `karpathy-llm-wiki`，补充结构化数据、详情页、README 清单和静态页展示
 - 新增第十条 `graphify`，补充结构化数据、详情页、README 清单和静态页展示
+- 新增第十一条 `wechat-article-reader`，补充微信公众号文章读取、摘要和图片链接提取类技能
+- 新增第十二条 `GenericAgent`，作为元技能/方法论收录，备注其不包含单个 skill 本体而是主张 Agent 自我生成和迭代技能
 - 优化静态页屏效比，移除读者视图中的来源权限提示
 - 新增 `npm run check`，用于校验 JSON、README、详情页和静态页一致性

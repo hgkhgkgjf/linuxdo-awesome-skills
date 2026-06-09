@@ -1,0 +1,78 @@
+{
+  "id": "wechat-article-reader",
+  "name": "wechat-article-reader",
+  "author": "jeffchan813",
+  "language": "zh-CN",
+  "repository": "https://github.com/jeffchan813/wechat-article-reader",
+  "detail_page": "docs/skills/wechat-article-reader.md",
+  "verified_at": "2026-06-09",
+  "verification_sources": [
+    "https://github.com/jeffchan813/wechat-article-reader",
+    "https://github.com/jeffchan813/wechat-article-reader/blob/main/README.md",
+    "https://github.com/jeffchan813/wechat-article-reader/blob/main/SKILL.md",
+    "https://linux.do/t/topic/1956732/34"
+  ],
+  "source": {
+    "type": "linux_do_topic_reply",
+    "topic_id": "1956732",
+    "post_number": 34,
+    "topic_url": "https://linux.do/t/topic/1956732/34",
+    "access_state": "user-provided recommendation source",
+    "captured_from": "summary extracted from user-provided Linux.do source link and original project files",
+    "captured_at": "2026-06-09"
+  },
+  "tags": [
+    "微信公众号",
+    "文章读取",
+    "内容提取",
+    "curl",
+    "Python",
+    "摘要提取",
+    "图片链接"
+  ],
+  "one_liner": "读取微信公众号文章链接，提取正文、摘要、图片链接或原始 HTML，适合快速理解和归档公众号内容。",
+  "prerequisites": [
+    "curl 命令行工具",
+    "Python 3.6+",
+    "可访问的微信公众号文章链接",
+    "网络可访问 mp.weixin.qq.com"
+  ],
+  "skill_description": {
+    "source": "SKILL.md frontmatter description",
+    "language": "zh-CN",
+    "display_label": "description",
+    "text": "获取微信公众号文章内容的技能。使用 curl 模拟浏览器请求 + 正则表达式提取正文，绕过微信的反爬机制。触发场景：用户分享微信公众号文章链接，需要获取文章内容、摘要或关键信息。技术原理：微信的\"反爬\"主要是防\"看\"而不是防\"拿\"，正文数据就在 HTML 源码的 js_content 标签里。"
+  },
+  "use_cases": [
+    "读取微信公众号文章正文",
+    "快速生成文章摘要",
+    "提取文章图片链接",
+    "保存原始 HTML 用于调试",
+    "批量处理公众号文章链接",
+    "辅助理解别人分享的微信文章"
+  ],
+  "summary": "一个轻量级微信公众号文章读取工具：用 curl 模拟浏览器请求获取 mp.weixin.qq.com 页面源码，再用 Python 正则从 js_content 区域提取正文，支持摘要、全文、图片链接、原始 HTML 保存和批量处理。",
+  "workflow": [
+    "准备微信公众号文章链接",
+    "使用 curl 携带浏览器 User-Agent、Referer 等请求头获取原始 HTML",
+    "用 Python 正则匹配 HTML 中的 js_content 正文区域",
+    "清理 HTML 标签、空白字符和编码问题",
+    "按需输出摘要、完整正文、图片链接或原始 HTML",
+    "必要时使用 verbose/html 调试模式检查页面结构",
+    "批量场景下循环处理多个文章 URL 并保存结果"
+  ],
+  "limitations": [
+    "微信页面结构或反爬策略变化可能导致提取失败",
+    "只适合可访问的微信公众号文章链接，不处理需要特殊登录态或私密转发的内容",
+    "正文提取依赖 js_content 结构，复杂排版、视频、小程序卡片等内容可能丢失",
+    "使用提取内容时应尊重原作者版权和平台规则",
+    "它是轻量读取工具，不提供浏览器渲染、OCR 或文章语义校对能力"
+  ],
+  "notes": [
+    "该项目与 karpathy-llm-wiki 都涉及内容整理，但 wechat-article-reader 面向单篇或批量微信公众号文章读取；karpathy-llm-wiki 面向长期维护的 Markdown 知识库。",
+    "该项目与 graphify 都能处理资料，但 wechat-article-reader 不构建知识图谱，只负责轻量抓取和提取公众号文章内容。",
+    "该项目与 PPT 类技能完全不同，不生成演示稿，核心产物是文章正文、摘要、图片链接或原始 HTML。",
+    "帖子原文未收录到仓库，当前记录仅保留提炼后的结构化信息。",
+    "推荐来源为 Linux.do 话题 1956732 的第 34 楼。"
+  ]
+}

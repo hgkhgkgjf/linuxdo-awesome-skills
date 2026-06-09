@@ -20,6 +20,8 @@ Linux.do 社区用户发布的 skills 导航。这里按“能做什么、前置
 | [GordenPPTSkill](docs/skills/gorden-ppt-skill.md) | 用内置中文商务 PPTX 模板或用户自带模板生成真实可编辑 PPTX，只替换文字并尽量不破坏原排版 | Python + `python-pptx`、预览需 LibreOffice/Poppler | 中文模板、商务汇报、模板保真 | [![GitHub](https://img.shields.io/badge/GitHub-GordenPPTSkill-24292f?logo=github)](https://github.com/GordenSun/GordenPPTSkill) | [![Stars](https://img.shields.io/github/stars/GordenSun/GordenPPTSkill?style=social)](https://github.com/GordenSun/GordenPPTSkill/stargazers) | [![Linux.do](https://cdn3.ldstatic.com/optimized/4X/c/c/d/ccd8c210609d498cbeb3d5201d4c259348447562_2_32x32.png)](https://linux.do/t/topic/2278294) |
 | [karpathy-llm-wiki](docs/skills/karpathy-llm-wiki.md) | 把 Karpathy LLM 课程、论文、博客和实验材料整理成可持续维护的 Markdown 知识库，并基于 wiki 带引用回答问题 | 原始资料、Markdown 维护、Node 可选 lint | 知识库、LLM 学习、引用问答 | [![GitHub](https://img.shields.io/badge/GitHub-karpathy--llm--wiki-24292f?logo=github)](https://github.com/Astro-Han/karpathy-llm-wiki) | [![Stars](https://img.shields.io/github/stars/Astro-Han/karpathy-llm-wiki?style=social)](https://github.com/Astro-Han/karpathy-llm-wiki/stargazers) | [![Linux.do](https://cdn3.ldstatic.com/optimized/4X/c/c/d/ccd8c210609d498cbeb3d5201d4c259348447562_2_32x32.png)](https://linux.do/t/topic/1945700/10) |
 | [graphify](docs/skills/graphify.md) | 把代码库、文档、PDF、图片和视频转成 Neo4j 知识图谱，并通过 GraphRAG 做结构化问答和架构理解 | Gemini API、Neo4j、Python/Node 环境 | 知识图谱、GraphRAG、代码库理解 | [![GitHub](https://img.shields.io/badge/GitHub-graphify-24292f?logo=github)](https://github.com/safishamsi/graphify) | [![Stars](https://img.shields.io/github/stars/safishamsi/graphify?style=social)](https://github.com/safishamsi/graphify/stargazers) | [![Linux.do](https://cdn3.ldstatic.com/optimized/4X/c/c/d/ccd8c210609d498cbeb3d5201d4c259348447562_2_32x32.png)](https://linux.do/t/topic/1907342) |
+| [wechat-article-reader](docs/skills/wechat-article-reader.md) | 读取微信公众号文章链接，提取正文、摘要、图片链接或原始 HTML，适合快速理解和归档公众号内容 | curl、Python 3.6+、微信公众号文章链接 | 微信公众号、文章读取、内容提取 | [![GitHub](https://img.shields.io/badge/GitHub-wechat--article--reader-24292f?logo=github)](https://github.com/jeffchan813/wechat-article-reader) | [![Stars](https://img.shields.io/github/stars/jeffchan813/wechat-article-reader?style=social)](https://github.com/jeffchan813/wechat-article-reader/stargazers) | [![Linux.do](https://cdn3.ldstatic.com/optimized/4X/c/c/d/ccd8c210609d498cbeb3d5201d4c259348447562_2_32x32.png)](https://linux.do/t/topic/1956732/34) |
+| [GenericAgent](docs/skills/generic-agent.md) | 自进化 Agent 框架，不提供单个可安装 skill，而是让 Agent 自动沉淀 SOP、生成技能树并迭代能力 | Python 3.11/3.12、LLM API Key、本地运行权限 | 元技能、Self-evolving Agent、技能树 | [![GitHub](https://img.shields.io/badge/GitHub-GenericAgent-24292f?logo=github)](https://github.com/lsdefine/GenericAgent) | [![Stars](https://img.shields.io/github/stars/lsdefine/GenericAgent?style=social)](https://github.com/lsdefine/GenericAgent/stargazers) | [![Linux.do](https://cdn3.ldstatic.com/optimized/4X/c/c/d/ccd8c210609d498cbeb3d5201d4c259348447562_2_32x32.png)](https://linux.do/t/topic/1962519) |
 
 ## 技能简介
 
@@ -59,6 +61,16 @@ Linux.do 社区用户发布的 skills 导航。这里按“能做什么、前置
 - [graphify](docs/skills/graphify.md)：代码库与多模态资料知识图谱工具，把仓库、文档、PDF、图片和视频转成 Neo4j 图谱，并通过 GraphRAG 做结构化问答。
   > description：使用 Graphify 把代码库、多模态文件（图像、PDF、文档、视频）和文本转换为可查询的 Neo4j 知识图谱，并通过其 API 与前端运行 GraphRAG。
 
+### 内容阅读与资料处理
+
+- [wechat-article-reader](docs/skills/wechat-article-reader.md)：轻量级微信公众号文章读取工具，用 `curl` 和 Python 从文章 HTML 中提取正文、摘要、图片链接或原始 HTML。
+  > description：获取微信公众号文章内容的技能。使用 curl 模拟浏览器请求 + 正则表达式提取正文，绕过微信的反爬机制。触发场景：用户分享微信公众号文章链接，需要获取文章内容、摘要或关键信息。技术原理：微信的"反爬"主要是防"看"而不是防"拿"，正文数据就在 HTML 源码的 js_content 标签里。
+
+### 元技能与方法论
+
+- [GenericAgent](docs/skills/generic-agent.md)：自进化 Agent 框架，不包含单个可安装 skill 本体，而是主张 Agent 在任务执行后自动沉淀 SOP、生成技能树并持续迭代能力。
+  > description：自进化 Agent：从 3.3K 行种子代码生长出技能树，以 6 倍更少的 token 消耗实现完整系统控制。
+
 ## 阅读说明
 
 - `详情`：查看技能用途、适合场景、输入输出、限制和来源说明。
@@ -66,3 +78,9 @@ Linux.do 社区用户发布的 skills 导航。这里按“能做什么、前置
 - `项目地址`：访问原作者发布的代码仓库。
 - `Stars`：显示 GitHub star 数，数值由外部徽章服务缓存生成。
 - `来源论坛`：访问 Linux.do 社区原帖。
+
+## 致谢
+
+感谢 **LinuxDo** 社区的支持！
+
+[![LinuxDo](https://img.shields.io/badge/社区-LinuxDo-blue?style=for-the-badge)](https://linux.do/)
