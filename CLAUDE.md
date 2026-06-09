@@ -25,6 +25,7 @@
 - 帖子原文只用于提炼 skill 的用途、特色、流程和局限性，不收录原文、不保存本地转录。
 - `index.html` 不展示 Linux.do 来源权限提示，例如 Lv1、登录后可查看、可能需要权限；这些只保留在 JSON 或详情页。
 - 静态页应优先高屏效比索引体验：卡片短、标签小、前置要求可扫读、限制只显示一句提醒，完整说明放详情页。
+- `index.html` 除页内锚点外的跳转链接默认使用 `target="_blank"` 和 `rel="noopener noreferrer"`，避免读者离开导航页。
 - 项目校验命令：`npm run check`。提交前必须运行，覆盖 JSON 解析、必填字段、README/静态页/详情页数量一致、本地链接、读者视图禁用词和内联 JS 语法。
 
 ## Maintenance Workflow
