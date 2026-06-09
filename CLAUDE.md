@@ -6,6 +6,7 @@
 - 当前项目路径：`/Users/xlzhao/Documents/Github 项目咨询/linuxdo-awesome-skills/`。
 - Git 仓库根目录已经迁移到 `linuxdo-awesome-skills/` 内部；后续所有 `git status`、提交和推送都必须在该目录执行，不要在父目录 `/Users/xlzhao/Documents/Github 项目咨询/` 操作。
 - `data/skills/*.json` 是事实来源，README 和静态页面是展示层。
+- GitHub Pages 自定义域名：`https://linuxdo-awesome-skills.tencents.ltd/`；README 的网页入口使用“在线导航页面”作为链接名称。
 - README 面向最终读者显示，只保留项目定位、网页入口、技能清单、分类导航和阅读说明。
 - 与本项目储备、编写过程、数据结构、发布计划、收录方法相关的内容放在 `CLAUDE.md` 或 `docs/collection-policy.md`，不要放进 README。
 - README 表格列优先服务筛选和跳转；避免同时放“用途”和“适合场景”这类语义重复的长列。

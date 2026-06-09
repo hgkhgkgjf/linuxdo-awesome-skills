@@ -4,7 +4,7 @@ Linux.do 社区用户发布的 skills 导航。这里按“能做什么、前置
 
 ## 网页入口
 
-- [打开静态展示页](index.html)
+- [在线导航页面](https://linuxdo-awesome-skills.tencents.ltd/)
 
 ## 技能清单
 
