@@ -1,0 +1,76 @@
+{
+  "id": "karpathy-llm-wiki",
+  "name": "karpathy-llm-wiki",
+  "author": "Astro-Han",
+  "language": "zh-CN",
+  "repository": "https://github.com/Astro-Han/karpathy-llm-wiki",
+  "detail_page": "docs/skills/karpathy-llm-wiki.md",
+  "verified_at": "2026-06-09",
+  "verification_sources": [
+    "https://github.com/Astro-Han/karpathy-llm-wiki",
+    "https://github.com/Astro-Han/karpathy-llm-wiki/blob/main/README.md",
+    "https://github.com/Astro-Han/karpathy-llm-wiki/blob/main/SKILL.md",
+    "https://linux.do/t/topic/1945700/10"
+  ],
+  "source": {
+    "type": "linux_do_topic_reply",
+    "topic_id": "1945700",
+    "topic_url": "https://linux.do/t/topic/1945700/10",
+    "access_state": "publicly accessible during curation",
+    "captured_from": "summary extracted from Linux.do source link and original project files",
+    "captured_at": "2026-06-09"
+  },
+  "tags": [
+    "知识库",
+    "LLM 学习",
+    "Karpathy",
+    "Markdown Wiki",
+    "引用问答",
+    "资料整理",
+    "lint"
+  ],
+  "one_liner": "把 Karpathy LLM 课程、论文、博客和实验材料整理成可持续维护的 Markdown 知识库，并基于 wiki 带引用回答问题。",
+  "prerequisites": [
+    "课程、论文、博客或笔记等原始资料",
+    "Markdown 资料维护习惯",
+    "Node 可选用于 wiki lint 检查"
+  ],
+  "skill_description": {
+    "source": "SKILL.md description",
+    "language": "zh-CN",
+    "display_label": "description",
+    "text": "构建和查询 Karpathy LLM 知识库。使用该技能来吸收新的来源到 wiki、回答关于 LLM 的问题、维护 wiki 健康，或浏览知识库概览。"
+  },
+  "use_cases": [
+    "整理 Karpathy LLM 课程笔记",
+    "把论文、博客和链接编译成 wiki",
+    "基于知识库回答 LLM 问题",
+    "带引用输出学习资料摘要",
+    "维护资料引用和覆盖率",
+    "检查 wiki 健康状态"
+  ],
+  "summary": "一个围绕 Karpathy LLM 学习资料的知识库维护 skill：把原始资料放入 raw/，由 Agent 编译为 wiki/ 下的 Markdown 主题页，维护 sources.yml 和 coverage.yml，并通过 lint 检查链接、frontmatter、引用和覆盖率，让后续问答尽量基于已有 wiki 并附带来源。",
+  "workflow": [
+    "把课程、论文、博客、实验笔记或链接放入 raw/，并保留来源信息",
+    "根据资料主题更新 wiki/ 下的 Markdown 页面",
+    "维护 sources.yml，记录来源、URL、时间和可信度",
+    "维护 coverage.yml，标记知识点覆盖状态和缺口",
+    "回答问题时优先检索 wiki/，只在资料不足时回到 raw/ 或联网查证",
+    "输出答案时尽量引用具体 wiki 文件或来源",
+    "运行 lint 脚本检查 wiki 链接、frontmatter、引用和覆盖率",
+    "持续把新增材料沉淀回 wiki，避免只做一次性摘要"
+  ],
+  "limitations": [
+    "主要服务 Karpathy LLM 学习资料和相关 LLM 知识整理，不是通用网页剪藏器",
+    "回答质量依赖 wiki 覆盖率、来源质量和引用维护情况",
+    "需要持续维护 raw/、wiki/、sources.yml 和 coverage.yml，否则知识库会逐渐失真",
+    "对实时新闻、最新模型价格和快速变化 API 仍需额外联网核验",
+    "不生成 PPT、代码界面或图片资产，核心产物是 Markdown 知识库和带引用问答"
+  ],
+  "notes": [
+    "该项目与当前多个 PPT 类技能完全不同：它是 LLM 学习资料的知识库构建和查询技能，不是演示稿生成工具。",
+    "该项目适合和后续学习、研究、笔记整理类 skill 放在同一分类下。",
+    "帖子原文未收录到仓库，当前记录仅保留提炼后的结构化信息。",
+    "来源地址为 Linux.do 话题 1945700 的第 10 楼，整理时可直接查看。"
+  ]
+}

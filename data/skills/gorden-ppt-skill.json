@@ -1,0 +1,79 @@
+{
+  "id": "gorden-ppt-skill",
+  "name": "GordenPPTSkill",
+  "author": "GordenSun",
+  "language": "zh-CN",
+  "repository": "https://github.com/GordenSun/GordenPPTSkill",
+  "detail_page": "docs/skills/gorden-ppt-skill.md",
+  "verified_at": "2026-06-09",
+  "verification_sources": [
+    "https://github.com/GordenSun/GordenPPTSkill",
+    "https://github.com/GordenSun/GordenPPTSkill/blob/main/README.md",
+    "https://github.com/GordenSun/GordenPPTSkill/blob/main/SKILL.md",
+    "https://github.com/GordenSun/GordenPPTSkill/blob/main/templates/INDEX.md",
+    "https://linux.do/t/topic/2278294"
+  ],
+  "source": {
+    "type": "linux_do_topic",
+    "topic_id": "2278294",
+    "topic_url": "https://linux.do/t/topic/2278294",
+    "access_state": "publicly accessible during curation",
+    "captured_from": "summary extracted from Linux.do topic and original project files",
+    "captured_at": "2026-06-09"
+  },
+  "tags": [
+    "PPTX",
+    "中文模板",
+    "商务汇报",
+    "模板保真",
+    "原生可编辑",
+    "非破坏编辑",
+    "自动更新"
+  ],
+  "one_liner": "用内置中文商务 PPTX 模板或用户自带模板生成真实可编辑 PPTX，只替换文字并尽量不破坏原排版。",
+  "prerequisites": [
+    "Python 3 与 python-pptx 1.0+",
+    "首次使用需运行自动更新脚本",
+    "预览渲染需 LibreOffice + Poppler",
+    "内置模板仅限个人学习研究"
+  ],
+  "skill_description": {
+    "source": "SKILL.md description",
+    "language": "zh-CN",
+    "display_label": "description",
+    "text": "用 19 套内置中文 PPT 模板（或用户自带的 .pptx 模板）生成与编辑 PowerPoint 演示文稿：只替换文字、不破坏原排版/配色/字号，内置按文本框尺寸的出框检测与同级标题字号一致校验；也支持完全原创的简洁版式。当用户要“做 / 生成 / 制作 / 编辑一份 PPT / 演示文稿 / 幻灯片 / .pptx”，或需要工作汇报、年终与季度总结、述职竞聘、项目复盘、开题答辩、商务提案、教学课件、数据可视化等成品 PPTX 时使用。"
+  },
+  "use_cases": [
+    "国企或互联网大厂风格商务汇报",
+    "年终总结和季度复盘",
+    "述职竞聘和项目复盘",
+    "商务提案和教学课件",
+    "按用户自带 PPTX 模板换内容",
+    "对已有 PPT 进行文字级编辑"
+  ],
+  "summary": "一个面向中文商务场景的原生 PPTX 模板生成 skill：内置多套中文高质量 PPTX 模板，也支持用户自带模板；核心方法是读取模板结构和文本容量，生成 edits.json 后用 python-pptx 选页并替换文字，从而保留原排版、配色、字号和视觉质感。",
+  "workflow": [
+    "首次启用时运行 scripts/apply_update.py，拉取最新模板和规则",
+    "根据用户场景从 templates/INDEX.md 中筛选候选模板，必要时让用户看预览图选择",
+    "读取目标模板 intro.md 和 detail.json，理解页面角色、文本槽位、容量和注意事项",
+    "规划 PPT 结构，选择合适页面并写入 edits.json",
+    "使用 scripts/build_pptx.py 从模板生成最终 PPTX，可开启 --strict 做出框检查",
+    "如需预览，使用 scripts/render_slides.py 借助 LibreOffice 和 Poppler 导出逐页 PNG",
+    "如果用户提供自带 PPTX 模板，先渲染和探查 shape 结构，再用 explicit address 写 edits.json",
+    "当用户明确要求不用模板时，走原创简洁版式，但仍控制元素数量和风格一致性"
+  ],
+  "limitations": [
+    "内置模板仅供个人学习和研究，禁止商业使用或二次分发；商业场景需要自行确认模板授权",
+    "核心策略是非破坏式文字替换，通常不主动改变版式、配色、字号和图形结构",
+    "装饰性图形、进度条、圆环、旗帜路径等固定形状不会因文字数值变化自动同步",
+    "复杂预览依赖 LibreOffice 和 Poppler，缺失时仍可生成 PPTX，但无法完整渲染自检",
+    "如果文字超过文本框容量，应缩短文案，而不是改小字号，否则会破坏同级标题一致性"
+  ],
+  "notes": [
+    "该项目与 thesis-defense-pptx-skill 都重视模板保真，但 thesis-defense-pptx-skill 专注论文答辩和用户学校模板；GordenPPTSkill 更偏中文商务汇报、年终总结、述职竞聘、项目复盘等职场场景，并内置中文模板库。",
+    "该项目与 gpt-image2-ppt-skills、awesome-ppt-skills 的图片优先路线不同：它输出真实可编辑 PPTX，并尽量保留模板对象结构。",
+    "原 README 提到仓库内置 17 个模板，SKILL.md 当前 description 写 19 套模板；本条按当前 SKILL.md description 保留 19 套说法。",
+    "帖子原文未收录到仓库，当前记录仅保留提炼后的结构化信息。",
+    "来源地址为 Linux.do 话题 2278294，整理时可直接查看。"
+  ]
+}

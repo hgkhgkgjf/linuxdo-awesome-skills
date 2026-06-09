@@ -1,0 +1,78 @@
+{
+  "id": "ppt-master",
+  "name": "ppt-master",
+  "author": "hugohe3",
+  "language": "zh-CN",
+  "repository": "https://github.com/hugohe3/ppt-master",
+  "detail_page": "docs/skills/ppt-master.md",
+  "verified_at": "2026-06-08",
+  "verification_sources": [
+    "https://github.com/hugohe3/ppt-master",
+    "https://github.com/hugohe3/ppt-master/blob/main/README.md",
+    "https://github.com/hugohe3/ppt-master/blob/main/README_CN.md",
+    "https://github.com/hugohe3/ppt-master/blob/main/skills/ppt-master/SKILL.md",
+    "https://linux.do/t/topic/1432693"
+  ],
+  "source": {
+    "type": "linux_do_topic",
+    "topic_id": "1432693",
+    "topic_url": "https://linux.do/t/topic/1432693",
+    "access_state": "may require login or permission; topic may be inaccessible during curation",
+    "captured_from": "summary extracted from Linux.do source link and original project files",
+    "captured_at": "2026-06-08"
+  },
+  "tags": [
+    "PPTX",
+    "原生可编辑",
+    "SVG",
+    "文档转演示稿",
+    "DrawingML",
+    "模板复用",
+    "演示稿"
+  ],
+  "one_liner": "将 PDF、DOCX、URL 或 Markdown 等素材转成高质量 SVG 页面，并导出为原生可编辑 PPTX。",
+  "prerequisites": [
+    "Python 本地脚本环境",
+    "SVG 到 PPTX 导出链路",
+    "适合分阶段生成和检查"
+  ],
+  "skill_description": {
+    "source": "skills/ppt-master/SKILL.md description",
+    "language": "zh-CN",
+    "translated_from": "en",
+    "display_label": "description",
+    "text": "AI 驱动的多格式 SVG 内容生成系统。通过多角色协作，将源文档（PDF/DOCX/URL/Markdown）转换为高质量 SVG 页面并导出为 PPTX。当用户要求 “create PPT”、“make presentation”、“生成PPT”、“做PPT”、“制作演示文稿”，或提到 “ppt-master” 时使用。"
+  },
+  "use_cases": [
+    "PDF 转演示稿",
+    "DOCX 转 PPTX",
+    "网页或 Markdown 转 PPT",
+    "原生可编辑 PowerPoint",
+    "模板复用和品牌化演示",
+    "演讲备注、动画和旁白导出"
+  ],
+  "summary": "一个文档到原生可编辑 PPTX 的生成工作流：先把 PDF、DOCX、URL、Markdown 等来源转换成结构化内容，再规划设计规格与页面结构，逐页生成 SVG，最后导出为 PowerPoint 中可编辑的文本、形状、图表、图片和动画对象。",
+  "workflow": [
+    "接收 PDF、DOCX、PPTX、网页、Markdown、表格或文本说明等来源内容",
+    "把非 Markdown 来源转换为 Markdown 或可处理素材",
+    "初始化项目并导入来源文件、图片和资源清单",
+    "规划演示稿结构、画布比例、设计规格、模板和页面节奏",
+    "按页顺序生成 SVG 页面，并通过实时预览检查视觉效果",
+    "对 SVG 做质量检查、图像嵌入、文本和形状处理",
+    "导出为原生 PPTX，并按需要保留演讲备注、动画和旁白",
+    "可选基于模板、品牌规范或用户注解重新调整并导出"
+  ],
+  "limitations": [
+    "不是一句话许愿式工具，复杂材料仍需要明确输入、逐步执行和人工复核",
+    "输出质量依赖源文档质量、模型能力、模板设计和逐页检查",
+    "流程依赖本地 Python 脚本、项目目录和连续执行上下文，新手需要先按 README 完成安装",
+    "高度精确的合规、财务或法律材料仍需人工校对文字、数据和图表",
+    "长篇或复杂演示稿更适合分阶段生成和迭代，不适合一次性无检查完成"
+  ],
+  "notes": [
+    "该项目和 awesome-ppt-skills 的定位不同：ppt-master 侧重原生可编辑 PPTX 工作流，awesome-ppt-skills 侧重整页图片版 PPTX 与实验性重建。",
+    "原项目提供中文 README、在线演示页、核心 SKILL.md、脚本和多种工作流参考。",
+    "Linux.do 来源地址为话题 1432693，用户提示该地址可能无法访问，因此当前只保留来源链接和可见性说明。",
+    "帖子原文未收录到仓库，当前记录仅保留提炼后的结构化信息。"
+  ]
+}

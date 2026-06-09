@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Linux.do Awesome Skills</title>
+  <meta name="description" content="Linux.do 社区用户发布的 skills 清单与导航。">
+  <style>
+    :root {
+      --ink: #202622;
+      --muted: #66736c;
+      --line: #d7dfd8;
+      --paper: #f5f8f1;
+      --panel: #ffffff;
+      --green: #126d57;
+      --green-deep: #0c473b;
+      --red: #d64c31;
+      --yellow: #f2c84b;
+      --cyan: #0b7c83;
+      --shadow: 0 14px 42px rgba(24, 36, 29, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(135deg, rgba(18, 109, 87, 0.08), transparent 34%),
+        linear-gradient(225deg, rgba(214, 76, 49, 0.08), transparent 32%),
+        repeating-linear-gradient(90deg, rgba(32, 38, 34, 0.035) 0 1px, transparent 1px 44px),
+        var(--paper);
+      font-family: "Avenir Next", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      letter-spacing: 0;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .shell {
+      width: min(1360px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 18px 0 42px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 10px 0 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+    }
+
+    .mark {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border: 2px solid var(--ink);
+      background: var(--yellow);
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    .topnav {
+      display: flex;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .topnav a {
+      text-decoration: none;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 260px;
+      gap: 20px;
+      align-items: end;
+      padding: 18px 0 16px;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-family: "Songti SC", "STSong", "Noto Serif CJK SC", serif;
+      font-size: clamp(34px, 5.8vw, 64px);
+      line-height: 1.02;
+      font-weight: 800;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .stat {
+      min-height: 92px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.74);
+      box-shadow: var(--shadow);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .controls {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      display: grid;
+      grid-template-columns: minmax(260px, 0.9fr) minmax(0, 1.6fr);
+      gap: 10px;
+      align-items: center;
+      margin: 12px 0 18px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      background: rgba(245, 248, 241, 0.9);
+      backdrop-filter: blur(16px);
+    }
+
+    .search {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 40px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    .search input {
+      width: 100%;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--ink);
+      font: inherit;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: flex-start;
+    }
+
+    .chip {
+      min-height: 30px;
+      border: 1px solid var(--line);
+      padding: 0 10px;
+      background: var(--panel);
+      color: var(--ink);
+      cursor: pointer;
+      font: inherit;
+      font-size: 12px;
+    }
+
+    .chip[aria-pressed="true"] {
+      border-color: var(--ink);
+      background: var(--green-deep);
+      color: #fff;
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 12px;
+    }
+
+    .skill-card {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 50px rgba(24, 36, 29, 0.14);
+    }
+
+    .card-head {
+      padding: 15px 16px 14px;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(11, 124, 131, 0.12), transparent 38%),
+        #fff;
+    }
+
+    .card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .card-meta span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 22px;
+      border: 1px solid rgba(215, 223, 216, 0.9);
+      padding: 0 8px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 21px;
+      line-height: 1.2;
+    }
+
+    .one-liner {
+      margin: 9px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .card-body {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      gap: 12px;
+      padding: 14px 16px 16px;
+    }
+
+    .card-info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .section-title {
+      margin: 0 0 6px;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .tag-list,
+    .use-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .tag-list li,
+    .use-list li {
+      border: 1px solid var(--line);
+      padding: 4px 7px;
+      background: #fbfcf8;
+      font-size: 11px;
+      line-height: 1.25;
+    }
+
+    .tag-list li {
+      color: #526159;
+    }
+
+    .use-list li {
+      color: var(--ink);
+    }
+
+    .tag-list li.more,
+    .use-list li.more {
+      color: var(--muted);
+      background: rgba(245, 248, 241, 0.72);
+    }
+
+    .limit-note {
+      margin: 0;
+      border-left: 3px solid rgba(214, 76, 49, 0.38);
+      padding: 8px 10px;
+      background: rgba(214, 76, 49, 0.055);
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 12px;
+    }
+
+    .limit-note strong {
+      margin-right: 6px;
+      color: var(--red);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 34px;
+      border: 1px solid var(--ink);
+      padding: 0 10px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .button.primary {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .button.secondary {
+      background: #fff;
+    }
+
+    .forum-link img {
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+    }
+
+    .empty {
+      display: none;
+      padding: 28px;
+      border: 1px dashed var(--line);
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .footnote {
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 780px) {
+      .shell {
+        width: min(100% - 24px, 1180px);
+        padding-top: 18px;
+      }
+
+      .topbar,
+      .hero,
+      .controls {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        align-items: flex-start;
+      }
+
+      .topnav {
+        flex-wrap: wrap;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .controls {
+        position: static;
+      }
+
+      .filters {
+        justify-content: flex-start;
+      }
+
+      .card-info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="mark" aria-hidden="true">LD</div>
+        <span>Linux.do Awesome Skills</span>
+      </div>
+      <nav class="topnav" aria-label="页面导航">
+        <a href="#skills">技能清单</a>
+        <a href="README.md">README</a>
+        <a href="docs/collection-policy.md">收录规则</a>
+      </nav>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <h1 id="page-title">Linux.do 社区技能导航</h1>
+        <p class="lead">快速了解社区用户发布的 skills：它们能做什么、使用前需要什么、项目在哪里、Star 数如何、论坛来源在哪里，以及是否值得进一步查看。</p>
+      </div>
+      <div class="stats" aria-label="索引统计">
+        <div class="stat">
+          <strong id="skill-count">10</strong>
+          <span>已整理技能</span>
+        </div>
+        <div class="stat">
+          <strong id="source-count">10</strong>
+          <span>论坛来源已关联</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="controls" aria-label="筛选技能">
+      <label class="search" for="searchInput">
+        <span aria-hidden="true">⌕</span>
+        <input id="searchInput" type="search" placeholder="搜索技能、用途、标签或来源">
+      </label>
+      <div class="filters" aria-label="标签筛选">
+        <button class="chip" type="button" data-filter="all" aria-pressed="true">全部</button>
+        <button class="chip" type="button" data-filter="设计还原" aria-pressed="false">设计还原</button>
+        <button class="chip" type="button" data-filter="前端" aria-pressed="false">前端</button>
+        <button class="chip" type="button" data-filter="Figma" aria-pressed="false">Figma</button>
+        <button class="chip" type="button" data-filter="网页 PPT" aria-pressed="false">网页 PPT</button>
+        <button class="chip" type="button" data-filter="封面生成" aria-pressed="false">封面</button>
+        <button class="chip" type="button" data-filter="PPTX" aria-pressed="false">PPTX</button>
+        <button class="chip" type="button" data-filter="可编辑重建" aria-pressed="false">可编辑</button>
+        <button class="chip" type="button" data-filter="原生可编辑" aria-pressed="false">原生可编辑</button>
+        <button class="chip" type="button" data-filter="SVG" aria-pressed="false">SVG</button>
+        <button class="chip" type="button" data-filter="模板克隆" aria-pressed="false">模板克隆</button>
+        <button class="chip" type="button" data-filter="图片型 PPT" aria-pressed="false">图片型 PPT</button>
+        <button class="chip" type="button" data-filter="nano banana pro" aria-pressed="false">nano banana</button>
+        <button class="chip" type="button" data-filter="AI PPT 应用" aria-pressed="false">AI PPT 应用</button>
+        <button class="chip" type="button" data-filter="论文答辩" aria-pressed="false">论文答辩</button>
+        <button class="chip" type="button" data-filter="模板保真" aria-pressed="false">模板保真</button>
+        <button class="chip" type="button" data-filter="中文模板" aria-pressed="false">中文模板</button>
+        <button class="chip" type="button" data-filter="商务汇报" aria-pressed="false">商务汇报</button>
+        <button class="chip" type="button" data-filter="知识库" aria-pressed="false">知识库</button>
+        <button class="chip" type="button" data-filter="LLM 学习" aria-pressed="false">LLM 学习</button>
+        <button class="chip" type="button" data-filter="知识图谱" aria-pressed="false">知识图谱</button>
+        <button class="chip" type="button" data-filter="GraphRAG" aria-pressed="false">GraphRAG</button>
+      </div>
+    </section>
+
+    <section id="skills" class="skill-grid" aria-label="技能清单"></section>
+    <p id="emptyState" class="empty">没有找到匹配的技能。换个关键词试试。</p>
+
+    <p class="footnote">帖子原文只用于整理阶段提炼用途、特色、流程和局限性；本索引不保存原文全文。</p>
+  </main>
+
+  <script>
+    const skills = [
+      {
+        name: "image-to-code-skill",
+        author: "yuzhworkhard-wq",
+        oneLiner: "将 UI 图片、截图或 Figma 导出稿还原为自适应代码，并导出高清透明 PNG 资源。",
+        tags: ["图片转代码", "设计还原", "前端", "Figma", "image-to-code"],
+        prerequisites: ["图片理解 Agent", "本地图片处理脚本", "清晰 UI 图或 Figma 导出稿"],
+        useCases: ["UI 图转代码", "移动端页面复刻", "高清透明 PNG 切图", "Figma 可编辑图层导出"],
+        limitations: ["输出质量依赖源图清晰度和 manifest 完整度", "Figma 输出通常需要额外生成 layer spec 或本地 importer", "核心目标是严格视觉还原，不是重新设计"],
+        detail: "docs/skills/image-to-code-skill.md",
+        repository: "https://github.com/yuzhworkhard-wq/image-to-code",
+        stars: "https://github.com/yuzhworkhard-wq/image-to-code/stargazers",
+        source: "https://linux.do/t/topic/2314994",
+        forumIcon: "https://cdn3.ldstatic.com/optimized/4X/c/c/d/ccd8c210609d498cbeb3d5201d4c259348447562_2_32x32.png"
+      },
+      {
+        name: "guizang-ppt-skill",
+        author: "op7418",
+        oneLiner: "生成单文件 HTML 横向翻页演示稿，并支持电子杂志风、瑞士风、配图和多平台封面。",
+        tags: ["网页 PPT", "HTML 演示稿", "设计排版", "瑞士风", "电子杂志风", "封面生成", "配图"],
+        prerequisites: ["浏览器预览环境", "可编辑 HTML/CSS", "文章、大纲或演讲素材"],
+        useCases: ["文章转演讲稿", "技术分享 PPT", "产品发布演示", "网页横向翻页 deck", "多平台封面"],
+        limitations: ["更适合 6 到 10 页左右的观点型或发布型演示", "核心交付是 HTML deck，不是原生 PPTX", "不适合大段表格数据或超高信息密度培训课件"],
+        detail: "docs/skills/guizang-ppt-skill.md",
+        repository: "https://github.com/op7418/guizang-ppt-skill",
+        stars: "https://github.com/op7418/guizang-ppt-skill/stargazers",
+        source: "https://linux.do/t/topic/2275626",
+        forumIcon: "https://cdn3.ldstatic.com/optimized/4X/c/c/d/ccd8c210609d498cbeb3d5201d4c259348447562_2_32x32.png"
+      },
+      {
+        name: "awesome-ppt-skills",
+        author: "stevenjinlong",
+        oneLiner: "从一句提示词生成带完整视觉设计和文字的整页图片版 PPTX，并提供实验性可编辑重建流程。",
+        tags: ["PPTX", "图片版 PPT", "整页成图", "gpt-image-2", "可编辑重建", "ppt-master", "演示稿"],
+        prerequisites: ["gpt-image/imagegen", "PPTX 打包脚本", "可编辑模式需 ppt-master"],
+        useCases: ["一句话生成 PPTX", "技术分享 PPT", "产品发布演示稿", "整页图片版 PPT", "可编辑 PPT 实验重建"],
+        limitations: ["标准流程的可见文字默认烘焙在整页图片里", "可编辑流程不是无损位图转矢量", "密集表格或逐字审计内容不适合默认图片优先流程"],
+        detail: "docs/skills/awesome-ppt-skills.md",
+        repository: "https://github.com/stevenjinlong/awesome-ppt-skills",
+        stars: "https://github.com/stevenjinlong/awesome-ppt-skills/stargazers",
+        source: "https://linux.do/t/topic/2090997",
+        forumIcon: "https://cdn3.ldstatic.com/optimized/4X/c/c/d/ccd8c210609d498cbeb3d5201d4c259348447562_2_32x32.png"
+      },
+      {
+        name: "ppt-master",
+        author: "hugohe3",
+        oneLiner: "将 PDF、DOCX、URL 或 Markdown 等素材转成高质量 SVG 页面，并导出为原生可编辑 PPTX。",
+        tags: ["PPTX", "原生可编辑", "SVG", "文档转演示稿", "DrawingML", "模板复用", "演示稿"],
+        prerequisites: ["Python 本地脚本环境", "SVG 到 PPTX 导出链路", "分阶段生成和检查"],
+        useCases: ["PDF 转演示稿", "DOCX 转 PPTX", "网页或 Markdown 转 PPT", "原生可编辑 PowerPoint", "模板复用和品牌化演示"],
+        limitations: ["复杂材料仍需要明确输入、逐步执行和人工复核", "需要本地 Python 脚本、项目目录和连续工作流", "高精度合规、财务或法律材料仍需人工校对"],
+        detail: "docs/skills/ppt-master.md",
+        repository: "https://github.com/hugohe3/ppt-master",
+        stars: "https://github.com/hugohe3/ppt-master/stargazers",
+        source: "https://linux.do/t/topic/1432693",
+        forumIcon: "https://cdn3.ldstatic.com/optimized/4X/c/c/d/ccd8c210609d498cbeb3d5201d4c259348447562_2_32x32.png"
+      },
+      {
+        name: "gpt-image2-ppt-skills",
+        author: "JuneYaooo",
+        oneLiner: "用 gpt-image-2 生成视觉完成度高的图片型 PPTX，支持 10 套风格、模板克隆和自然语言改页。",
+        tags: ["PPTX", "图片型 PPT", "gpt-image-2", "模板克隆", "自然语言编辑", "真实素材保真", "Markdown 编排"],
+        prerequisites: ["gpt-image-2 图像生成能力", "PPTX 渲染/打包脚本", "模板克隆需可渲染 PPTX"],
+        useCases: ["一句话生成图片型 PPTX", "按 PPTX 模板仿版式换内容", "融资路演和产品介绍", "自然语言修改指定页", "真实图片和 Logo 保真嵌入"],
+        limitations: ["背景和文字本质上仍是整页图片", "密集表格、数字和小字需要人工核对", "模板克隆效果依赖渲染后端、参考图和模型表现"],
+        detail: "docs/skills/gpt-image2-ppt-skills.md",
+        repository: "https://github.com/JuneYaooo/gpt-image2-ppt-skills",
+        stars: "https://github.com/JuneYaooo/gpt-image2-ppt-skills/stargazers",
+        source: "https://linux.do/t/topic/2053515",
+        forumIcon: "https://cdn3.ldstatic.com/optimized/4X/c/c/d/ccd8c210609d498cbeb3d5201d4c259348447562_2_32x32.png"
+      },
+      {
+        name: "banana-slides",
+        author: "Anionex",
+        oneLiner: "基于 nano banana pro 的一站式 AI PPT 应用，从想法生成演示稿，支持模板素材、框选编辑和 PPTX/PDF/视频导出。",
+        tags: ["PPTX", "AI PPT 应用", "nano banana pro", "Vibe PPT", "自然语言编辑", "素材工具箱", "CLI"],
+        prerequisites: ["nano banana pro 或兼容模型", "在线服务或本地后端", "本地部署需 Docker 或 Python/Node"],
+        useCases: ["从想法生成 Vibe PPT", "上传模板或素材生成演示稿", "框选区域自然语言编辑", "翻新已有 PPT 或 PDF", "导出 PPTX/PDF/图片/讲解视频"],
+        limitations: ["部署和配置成本高于轻量 skill", "模型可用性和额度会直接影响体验", "不主打 PowerPoint 原生对象级编辑"],
+        detail: "docs/skills/banana-slides.md",
+        repository: "https://github.com/Anionex/banana-slides",
+        stars: "https://github.com/Anionex/banana-slides/stargazers",
+        source: "https://linux.do/t/topic/1285413",
+        forumIcon: "https://cdn3.ldstatic.com/optimized/4X/c/c/d/ccd8c210609d498cbeb3d5201d4c259348447562_2_32x32.png"
+      },
+      {
+        name: "thesis-defense-pptx-skill",
+        author: "zouchenzhen",
+        oneLiner: "从论文 PDF/LaTeX 和学校或学院 PPTX 模板生成原生可编辑答辩 PPT，并做逐页导出、文字溢出和旧模板词检查。",
+        tags: ["PPTX", "论文答辩", "模板保真", "原生可编辑", "PowerPoint COM", "LaTeX", "质量检查"],
+        prerequisites: ["论文 PDF 或 LaTeX 项目", "用户提供的 PPTX 答辩模板", "完整质量检查推荐 Windows + PowerPoint"],
+        useCases: ["本科或研究生毕业答辩 PPT", "学院或学校模板严格套用", "实验室或品牌学术汇报", "旧版答辩 PPT 翻新但保留模板", "本地私密论文项目生成 PPTX"],
+        limitations: ["主要服务论文答辩和模板保真", "完整质量门依赖 Windows + Microsoft PowerPoint COM", "Word DOCX 结构化提取尚未实现"],
+        detail: "docs/skills/thesis-defense-pptx-skill.md",
+        repository: "https://github.com/zouchenzhen/thesis-defense-pptx-skill",
+        stars: "https://github.com/zouchenzhen/thesis-defense-pptx-skill/stargazers",
+        source: "https://linux.do/t/topic/2091089",
+        forumIcon: "https://cdn3.ldstatic.com/optimized/4X/c/c/d/ccd8c210609d498cbeb3d5201d4c259348447562_2_32x32.png"
+      },
+      {
+        name: "GordenPPTSkill",
+        author: "GordenSun",
+        oneLiner: "用内置中文商务 PPTX 模板或用户自带模板生成真实可编辑 PPTX，只替换文字并尽量不破坏原排版。",
+        tags: ["PPTX", "中文模板", "商务汇报", "模板保真", "原生可编辑", "非破坏编辑", "自动更新"],
+        prerequisites: ["Python 3 与 python-pptx 1.0+", "首次使用需运行自动更新脚本", "预览渲染需 LibreOffice + Poppler"],
+        useCases: ["国企或互联网大厂风格商务汇报", "年终总结和季度复盘", "述职竞聘和项目复盘", "商务提案和教学课件", "按用户自带 PPTX 模板换内容"],
+        limitations: ["内置模板仅限个人学习研究，禁止商业使用或二次分发", "核心策略是非破坏式文字替换", "装饰性图形不会因文字数值变化自动同步"],
+        detail: "docs/skills/gorden-ppt-skill.md",
+        repository: "https://github.com/GordenSun/GordenPPTSkill",
+        stars: "https://github.com/GordenSun/GordenPPTSkill/stargazers",
+        source: "https://linux.do/t/topic/2278294",
+        forumIcon: "https://cdn3.ldstatic.com/optimized/4X/c/c/d/ccd8c210609d498cbeb3d5201d4c259348447562_2_32x32.png"
+      },
+      {
+        name: "karpathy-llm-wiki",
+        author: "Astro-Han",
+        oneLiner: "把 Karpathy LLM 课程、论文、博客和实验材料整理成可持续维护的 Markdown 知识库，并基于 wiki 带引用回答问题。",
+        tags: ["知识库", "LLM 学习", "Karpathy", "Markdown Wiki", "引用问答", "资料整理", "lint"],
+        prerequisites: ["课程、论文、博客或笔记等原始资料", "Markdown 资料维护习惯", "Node 可选用于 wiki lint 检查"],
+        useCases: ["整理 Karpathy LLM 课程笔记", "把论文、博客和链接编译成 wiki", "基于知识库回答 LLM 问题", "带引用输出学习资料摘要", "检查 wiki 健康状态"],
+        limitations: ["主要服务 Karpathy LLM 学习资料整理", "回答质量依赖 wiki 覆盖率和来源质量", "实时新闻、价格和 API 变更仍需联网核验"],
+        detail: "docs/skills/karpathy-llm-wiki.md",
+        repository: "https://github.com/Astro-Han/karpathy-llm-wiki",
+        stars: "https://github.com/Astro-Han/karpathy-llm-wiki/stargazers",
+        source: "https://linux.do/t/topic/1945700/10",
+        forumIcon: "https://cdn3.ldstatic.com/optimized/4X/c/c/d/ccd8c210609d498cbeb3d5201d4c259348447562_2_32x32.png"
+      },
+      {
+        name: "graphify",
+        author: "safishamsi",
+        oneLiner: "把代码库、文档、PDF、图片和视频转成 Neo4j 知识图谱，并通过 GraphRAG 做结构化问答和架构理解。",
+        tags: ["知识图谱", "GraphRAG", "代码库理解", "多模态资料", "Neo4j", "Gemini", "架构问答"],
+        prerequisites: ["Google Gemini API Key", "Neo4j 5.20+ 数据库", "Python、Node/React 与 Docker 可选"],
+        useCases: ["代码库结构理解", "项目架构问答", "文档/PDF/图片/视频知识抽取", "把仓库和资料转 Neo4j 图谱", "GraphRAG 检索增强问答"],
+        limitations: ["需要 Gemini API Key 和可用额度", "部署和维护成本高于普通 Markdown wiki", "大型仓库或多模态资料可能带来图谱噪音"],
+        detail: "docs/skills/graphify.md",
+        repository: "https://github.com/safishamsi/graphify",
+        stars: "https://github.com/safishamsi/graphify/stargazers",
+        source: "https://linux.do/t/topic/1907342",
+        forumIcon: "https://cdn3.ldstatic.com/optimized/4X/c/c/d/ccd8c210609d498cbeb3d5201d4c259348447562_2_32x32.png"
+      }
+    ];
+
+    const grid = document.querySelector("#skills");
+    const searchInput = document.querySelector("#searchInput");
+    const emptyState = document.querySelector("#emptyState");
+    const skillCount = document.querySelector("#skill-count");
+    const sourceCount = document.querySelector("#source-count");
+    const chips = Array.from(document.querySelectorAll(".chip"));
+    let activeFilter = "all";
+    const knownLocalLinks = new Set([
+      "README.md",
+      "docs/collection-policy.md",
+      ...skills.map((skill) => skill.detail)
+    ]);
+
+    function matchesSkill(skill, query) {
+      const haystack = [
+        skill.name,
+        skill.author,
+        skill.oneLiner,
+        ...skill.tags,
+        ...skill.prerequisites,
+        ...skill.useCases,
+        ...skill.limitations
+      ].join(" ").toLowerCase();
+      return haystack.includes(query.toLowerCase());
+    }
+
+    function createList(items, className) {
+      const visible = items.slice(0, 4);
+      const hiddenCount = items.length - visible.length;
+      const more = hiddenCount > 0 ? [`+${hiddenCount}`] : [];
+      return `<ul class="${className}">${
+        visible.map((item) => `<li>${item}</li>`).join("")
+      }${more.map((item) => `<li class="more">${item}</li>`).join("")}</ul>`;
+    }
+
+    function isRenderableLink(url) {
+      if (!url) return false;
+      if (url.startsWith("http") || url.startsWith("#")) return true;
+      return knownLocalLinks.has(url);
+    }
+
+    function createActions(skill) {
+      const actions = [
+        { label: "详情", href: skill.detail, className: "primary" },
+        { label: "GitHub", href: skill.repository, className: "secondary" },
+        { label: "Stars", href: skill.stars, className: "secondary" },
+        { label: "论坛", href: skill.source, className: "secondary forum-link", icon: skill.forumIcon }
+      ];
+      return actions
+        .filter((action) => isRenderableLink(action.href))
+        .map((action) => `
+          <a class="button ${action.className}" href="${action.href}">
+            ${action.icon ? `<img src="${action.icon}" alt="" width="14" height="14">` : ""}
+            ${action.label}
+          </a>
+        `).join("");
+    }
+
+    function render() {
+      const query = searchInput.value.trim();
+      const filtered = skills.filter((skill) => {
+        const filterMatched = activeFilter === "all" || skill.tags.includes(activeFilter);
+        return filterMatched && matchesSkill(skill, query);
+      });
+
+      skillCount.textContent = String(skills.length);
+      sourceCount.textContent = String(skills.filter((skill) => skill.source).length);
+      grid.innerHTML = filtered.map((skill) => `
+        <article class="skill-card">
+          <div class="card-head">
+            <div class="card-meta">
+              <span>${skill.author}</span>
+              <span>${skill.tags[0] || "Skill"}</span>
+            </div>
+            <h2>${skill.name}</h2>
+            <p class="one-liner">${skill.oneLiner}</p>
+          </div>
+          <div class="card-body">
+            <div class="card-info-grid">
+              <div>
+                <p class="section-title">前置要求</p>
+                ${createList(skill.prerequisites, "use-list")}
+              </div>
+              <div>
+                <p class="section-title">分类标签</p>
+                ${createList(skill.tags, "tag-list")}
+              </div>
+            </div>
+            <div>
+              <p class="section-title">常见用途</p>
+              ${createList(skill.useCases, "use-list")}
+            </div>
+            <p class="limit-note"><strong>留意</strong>${skill.limitations[0] || "查看详情页了解完整限制。"}</p>
+            <div class="actions">
+              ${createActions(skill)}
+            </div>
+          </div>
+        </article>
+      `).join("");
+      emptyState.style.display = filtered.length ? "none" : "block";
+    }
+
+    chips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        activeFilter = chip.dataset.filter;
+        chips.forEach((item) => item.setAttribute("aria-pressed", String(item === chip)));
+        render();
+      });
+    });
+
+    searchInput.addEventListener("input", render);
+    render();
+  </script>
+</body>
+</html>

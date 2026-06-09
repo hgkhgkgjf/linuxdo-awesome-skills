@@ -1,0 +1,78 @@
+{
+  "id": "banana-slides",
+  "name": "banana-slides",
+  "author": "Anionex",
+  "language": "zh-CN",
+  "repository": "https://github.com/Anionex/banana-slides",
+  "detail_page": "docs/skills/banana-slides.md",
+  "verified_at": "2026-06-08",
+  "verification_sources": [
+    "https://github.com/Anionex/banana-slides",
+    "https://github.com/Anionex/banana-slides/blob/main/README.md",
+    "https://github.com/Anionex/banana-slides/blob/main/skills/banana-cli/SKILL.md",
+    "https://docs.bananaslides.online/",
+    "https://linux.do/t/topic/1285413"
+  ],
+  "source": {
+    "type": "linux_do_topic",
+    "topic_id": "1285413",
+    "topic_url": "https://linux.do/t/topic/1285413",
+    "access_state": "topic JSON not publicly accessible during curation; source link retained",
+    "captured_from": "summary extracted from user-provided Linux.do source link and original project files",
+    "captured_at": "2026-06-08"
+  },
+  "tags": [
+    "PPTX",
+    "AI PPT 应用",
+    "nano banana pro",
+    "Vibe PPT",
+    "自然语言编辑",
+    "素材工具箱",
+    "CLI"
+  ],
+  "one_liner": "基于 nano banana pro 的一站式 AI PPT 应用，从想法生成演示稿，支持模板素材、框选编辑和 PPTX/PDF/视频导出。",
+  "prerequisites": [
+    "nano banana pro 或兼容生成模型",
+    "在线服务或本地 Banana Slides 后端",
+    "本地部署需 Docker，或 Python 3.10+/uv 与 Node/Vite"
+  ],
+  "skill_description": {
+    "source": "skills/banana-cli/SKILL.md description",
+    "language": "zh-CN",
+    "translated_from": "en",
+    "display_label": "description",
+    "text": "通过 Banana Slides API 创建、管理和导出 AI 生成演示稿的 CLI 工具。当用户要求：1. 从想法、大纲或描述生成 PPT/演示稿/幻灯片；2. 将项目导出为 PPTX、PDF 或图片；3. 批量生成多份演示稿；4. 以编程方式管理项目、页面、素材或模板；5. 翻新/重设计已有 PPT 或 PDF；6. 用自然语言编辑幻灯片图片时使用。"
+  },
+  "use_cases": [
+    "从想法生成 Vibe PPT",
+    "上传模板或素材生成演示稿",
+    "框选区域后用自然语言编辑",
+    "翻新已有 PPT 或 PDF",
+    "导出 PPTX、PDF、图片或讲解视频",
+    "通过 CLI 批量生成和管理项目"
+  ],
+  "summary": "一个基于 nano banana pro 的原生 AI PPT 生成应用：提供前端、后端、在线 Demo、CLI 和 Agent skill，从想法、大纲或素材生成演示稿，支持素材上传、模板复用、框选编辑、智能擦除、项目/页面管理，以及 PPTX、PDF、图片和讲解视频导出。",
+  "workflow": [
+    "选择在线 Demo 或本地部署 Banana Slides 前后端",
+    "配置生成模型、图片生成 provider 和必要 API/OAuth",
+    "输入想法、大纲、文档或上传模板、图片、Logo 等素材",
+    "生成大纲、页面描述和幻灯片图片",
+    "在应用内查看页面，必要时上传素材或框选区域做自然语言编辑",
+    "通过导出选项生成 PPTX、PDF、图片或讲解视频",
+    "需要自动化时使用 banana-cli 创建项目、生成页面、管理素材并导出文件",
+    "批量任务可通过 JSONL jobs 运行并生成报告"
+  ],
+  "limitations": [
+    "比单个 skill 更像完整应用，部署和配置成本高于轻量生成工作流",
+    "强依赖 nano banana pro 或兼容生成模型，模型可用性和额度会直接影响体验",
+    "本地 CLI 要求后端健康检查通过，常用入口是 http://localhost:5000/health",
+    "不应和 ppt-master 混淆：Banana Slides 侧重应用内生成、编辑和导出，不主打逐对象原生可编辑 PPTX",
+    "高精度数字、小字号文字、合规材料和复杂表格仍需要人工复核"
+  ],
+  "notes": [
+    "该项目与 gpt-image2-ppt-skills 同属图片生成驱动的 PPT 路线，但 Banana Slides 更像可部署的一站式产品，包含 Web 应用、素材工具箱、框选编辑、CLI、批量任务和在线 Demo。",
+    "该项目与 ppt-master 的定位不同：ppt-master 侧重 SVG 到原生可编辑 PPTX 工作流，Banana Slides 侧重 nano banana pro 驱动的 Vibe PPT 应用体验。",
+    "Linux.do 话题 JSON 在整理时不可公开访问，因此结构化数据保留来源链接并记录可见性状态。",
+    "帖子原文未收录到仓库，当前记录仅保留提炼后的结构化信息。"
+  ]
+}

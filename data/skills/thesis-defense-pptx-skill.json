@@ -1,0 +1,81 @@
+{
+  "id": "thesis-defense-pptx-skill",
+  "name": "thesis-defense-pptx-skill",
+  "author": "zouchenzhen",
+  "language": "zh-CN",
+  "repository": "https://github.com/zouchenzhen/thesis-defense-pptx-skill",
+  "detail_page": "docs/skills/thesis-defense-pptx-skill.md",
+  "verified_at": "2026-06-08",
+  "verification_sources": [
+    "https://github.com/zouchenzhen/thesis-defense-pptx-skill",
+    "https://github.com/zouchenzhen/thesis-defense-pptx-skill/blob/main/README.zh-CN.md",
+    "https://github.com/zouchenzhen/thesis-defense-pptx-skill/blob/main/README.en.md",
+    "https://github.com/zouchenzhen/thesis-defense-pptx-skill/blob/main/skills/thesis-defense-pptx/SKILL.md",
+    "https://linux.do/t/topic/2091089"
+  ],
+  "source": {
+    "type": "linux_do_topic",
+    "topic_id": "2091089",
+    "topic_url": "https://linux.do/t/topic/2091089",
+    "access_state": "publicly accessible during curation",
+    "captured_from": "summary extracted from Linux.do source link and original project files",
+    "captured_at": "2026-06-08"
+  },
+  "tags": [
+    "PPTX",
+    "论文答辩",
+    "模板保真",
+    "原生可编辑",
+    "PowerPoint COM",
+    "LaTeX",
+    "质量检查"
+  ],
+  "one_liner": "从论文 PDF/LaTeX 和学校或学院 PPTX 模板生成原生可编辑答辩 PPT，并做逐页导出、文字溢出和旧模板词检查。",
+  "prerequisites": [
+    "论文 PDF 或 LaTeX 项目",
+    "用户提供的 PPTX 答辩模板",
+    "完整质量检查推荐 Windows + Microsoft PowerPoint",
+    "Python 3.10+ 与 python-pptx/Pillow/PyMuPDF/pypdf"
+  ],
+  "skill_description": {
+    "source": "skills/thesis-defense-pptx/SKILL.md description",
+    "language": "zh-CN",
+    "translated_from": "en",
+    "display_label": "description",
+    "text": "从本地论文 PDF/LaTeX 项目和已有 PPTX 模板创建、润色并质量检查可编辑的本科或研究生论文答辩 PowerPoint 演示稿。当用户要求正式答辩 PPT、论文演示稿、学术答辩 PPT、模板匹配 PPTX，或带视觉检查的本地 PowerPoint 演示稿生成时使用。"
+  },
+  "use_cases": [
+    "本科或研究生毕业答辩 PPT",
+    "学院或学校模板严格套用",
+    "实验室或品牌学术汇报",
+    "从论文 PDF/LaTeX 提取答辩内容",
+    "旧版答辩 PPT 翻新但保留模板",
+    "本地私密论文项目生成 PPTX"
+  ],
+  "summary": "一个面向毕业论文答辩的本地 PPTX 生成工作流：读取论文 PDF/LaTeX、候选图表和用户提供的 PowerPoint 模板，优先复制模板原生页面并替换内容，生成真实可编辑 PPTX，再通过 PowerPoint 导出 PNG、总览图、文字溢出检查和旧模板词扫描来做交付前质量门。",
+  "workflow": [
+    "确认论文 PDF/LaTeX 项目、视觉模板 PPTX、可选旧版答辩 PPT 和输出目录",
+    "提取论文背景、问题定义、方法、实验、结果、结论和候选图表",
+    "分析用户提供的 PPTX 模板，包括封面、目录、章节页、导航、字体、颜色、卡片和间距",
+    "优先用 PowerPoint COM 复制原生模板页，生成稳定 PPT 骨架",
+    "把论文内容转写成简洁正式的答辩口径",
+    "用可编辑文本框、图片、表格和图形替换模板内容",
+    "导出逐页 PNG，生成整套 PPT 总览图",
+    "检查文字溢出、旧模板词、占位词、图片缺失、导航错误和明显视觉问题",
+    "根据质量检查结果继续修复，直到达到交付标准"
+  ],
+  "limitations": [
+    "目标很窄，主要服务论文答辩和模板保真，不适合通用创意型 PPT 设计",
+    "完整质量门依赖 Windows 和 Microsoft PowerPoint COM；macOS/Linux 只能使用 python-pptx 相关部分并跳过 COM 检查",
+    "当前内置提取脚本主要支持 PDF 文本、LaTeX 章节和候选图表，Word DOCX 结构化提取尚未实现",
+    "模板、校徽、字体、论文图表和第三方素材的授权需要使用者自行确认",
+    "高质量交付依赖人工查看总览图和关键页截图，不是一次生成后直接无检查发布"
+  ],
+  "notes": [
+    "该项目与 ppt-master 的定位不同：ppt-master 适合从资料生成新的原生可编辑 PPTX，本项目优先严格保留用户已有学校/学院/实验室模板。",
+    "该项目与 gpt-image2-ppt-skills、awesome-ppt-skills 的图片优先路线不同：它输出真实可编辑 PPTX，并围绕 PowerPoint COM 做渲染与溢出质量检查。",
+    "该项目不内置固定 PPT 模板，目标是复用用户提供的模板，而不是套用通用设计风格。",
+    "帖子原文未收录到仓库，当前记录仅保留提炼后的结构化信息。",
+    "来源地址为 Linux.do 话题 2091089，整理时可直接查看。"
+  ]
+}

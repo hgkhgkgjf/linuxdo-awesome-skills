@@ -1,0 +1,80 @@
+{
+  "id": "gpt-image2-ppt-skills",
+  "name": "gpt-image2-ppt-skills",
+  "author": "JuneYaooo",
+  "language": "zh-CN",
+  "repository": "https://github.com/JuneYaooo/gpt-image2-ppt-skills",
+  "detail_page": "docs/skills/gpt-image2-ppt-skills.md",
+  "verified_at": "2026-06-08",
+  "verification_sources": [
+    "https://github.com/JuneYaooo/gpt-image2-ppt-skills",
+    "https://github.com/JuneYaooo/gpt-image2-ppt-skills/blob/main/README.md",
+    "https://github.com/JuneYaooo/gpt-image2-ppt-skills/blob/main/SKILL.md",
+    "https://github.com/JuneYaooo/gpt-image2-ppt-skills/blob/main/docs/ppt-implementation-logic.md",
+    "https://github.com/JuneYaooo/gpt-image2-ppt-skills/blob/main/docs/edit_guide.md",
+    "https://linux.do/t/topic/2053515"
+  ],
+  "source": {
+    "type": "linux_do_topic",
+    "topic_id": "2053515",
+    "topic_url": "https://linux.do/t/topic/2053515",
+    "access_state": "publicly accessible during curation",
+    "captured_from": "summary extracted from Linux.do topic and original project files",
+    "captured_at": "2026-06-08"
+  },
+  "tags": [
+    "PPTX",
+    "图片型 PPT",
+    "gpt-image-2",
+    "模板克隆",
+    "自然语言编辑",
+    "真实素材保真",
+    "Markdown 编排"
+  ],
+  "one_liner": "用 gpt-image-2 生成视觉完成度高的图片型 PPTX，支持 10 套风格、模板克隆和自然语言改页。",
+  "prerequisites": [
+    "gpt-image-2 图像生成能力",
+    "PPTX 渲染/打包脚本",
+    "模板克隆需可渲染 PPTX"
+  ],
+  "skill_description": {
+    "source": "SKILL.md description",
+    "language": "zh-CN",
+    "translated_from": "en",
+    "display_label": "description",
+    "text": "通过 OpenAI 的 gpt-image-2 生成视觉冲击力强的 PPT 幻灯片，可以使用 styles/<id>.md 中的任意风格，也可以仿制用户提供的 .pptx 模板；输出高清幻灯片 PNG 和 16:9 .pptx。当用户要求制作 presentation、slides、deck、pitch deck、investor PPT、magazine-style PPT，或“做一份 PPT / 生成幻灯片 / 用 gpt-image 生成 PPT / 按这个模板生成 PPT”时使用。"
+  },
+  "use_cases": [
+    "一句话生成图片型 PPTX",
+    "按公司或公开模板仿版式换内容",
+    "融资路演和产品介绍",
+    "培训课件和课程分享",
+    "自然语言修改指定页",
+    "真实图片、Logo、图表素材保真嵌入"
+  ],
+  "summary": "一个基于 gpt-image-2 的图片型 PPTX 生成和编辑工作流：先用 Markdown 规划演示稿，再按内置风格或用户提供的 PPTX 模板生成整页视觉稿，最后打包为 16:9 PPTX。它重点解决视觉完成度、模板仿版、指定页修改、版本追踪和真实素材保真后贴。",
+  "workflow": [
+    "澄清内容、页数、观众、风格偏好和是否使用 PPTX 模板",
+    "先写 slides_plan.md 供用户确认文案，再转换为 slides_plan.json",
+    "选择内置风格，或渲染并分析用户提供的 PPTX 模板视觉风格",
+    "为每页构造 slide_spec，记录标题、卡片、指标、图片槽位等元素",
+    "先生成一页封面或样页做冒烟确认",
+    "调用 gpt-image-2 生成每页高清 PNG，并记录 prompt、metadata 和版本信息",
+    "将页面图片打包为 16:9 PPTX，真实素材可作为独立图片对象后贴",
+    "需要修改时读取 session 和 metadata，按页或元素重新生成目标页并更新 PPTX"
+  ],
+  "limitations": [
+    "背景和文字本质上仍是整页图片，不是原生文本框和形状对象级编辑",
+    "真实图片、Logo、产品截图和图表可以作为独立图片对象后贴，但文字和大部分版式仍依赖重生成",
+    "密集表格、财务数字、法律证据、医学影像和小字号内容需要人工逐项核对",
+    "模板克隆依赖 PPTX 渲染后端、视觉分析和参考图质量，不能保证每个模板都一次仿到位",
+    "视频素材不是当前主流程；图片素材可以保真嵌入或在明确允许时作为参考重绘"
+  ],
+  "notes": [
+    "该项目与 awesome-ppt-skills 都属于图片优先 PPTX 路线，但 gpt-image2-ppt-skills 更突出 PPTX 模板克隆、自然语言指哪改哪、真实素材保真后贴和 session 版本追踪。",
+    "该项目与 ppt-master 的定位不同：ppt-master 侧重原生可编辑 PPTX，gpt-image2-ppt-skills 侧重 gpt-image-2 整页视觉稿和图片型 PPTX。",
+    "Linux.do 原帖介绍过 HTML viewer 和 PPTX 双产物；当前 GitHub README 更突出每页高清 PNG 与 16:9 PPTX。",
+    "帖子原文未收录到仓库，当前记录仅保留提炼后的结构化信息。",
+    "来源地址为 Linux.do 话题 2053515，整理时可直接查看。"
+  ]
+}

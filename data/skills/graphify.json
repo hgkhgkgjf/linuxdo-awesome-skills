@@ -1,0 +1,78 @@
+{
+  "id": "graphify",
+  "name": "graphify",
+  "author": "safishamsi",
+  "language": "zh-CN",
+  "repository": "https://github.com/safishamsi/graphify",
+  "detail_page": "docs/skills/graphify.md",
+  "verified_at": "2026-06-09",
+  "verification_sources": [
+    "https://github.com/safishamsi/graphify",
+    "https://github.com/safishamsi/graphify/blob/main/README.md",
+    "https://github.com/safishamsi/graphify/blob/main/graphify/skill.md",
+    "https://linux.do/t/topic/1907342"
+  ],
+  "source": {
+    "type": "linux_do_topic",
+    "topic_id": "1907342",
+    "topic_url": "https://linux.do/t/topic/1907342",
+    "access_state": "publicly accessible during curation",
+    "captured_from": "summary extracted from user-provided Linux.do source link and original project files",
+    "captured_at": "2026-06-09"
+  },
+  "tags": [
+    "知识图谱",
+    "GraphRAG",
+    "代码库理解",
+    "多模态资料",
+    "Neo4j",
+    "Gemini",
+    "架构问答"
+  ],
+  "one_liner": "把代码库、文档、PDF、图片和视频转成 Neo4j 知识图谱，并通过 GraphRAG 做结构化问答和架构理解。",
+  "prerequisites": [
+    "Google Gemini API Key",
+    "Neo4j 5.20+ 数据库",
+    "本地运行需 Python、Node/React 与 Docker 可选",
+    "待分析代码库或多模态资料"
+  ],
+  "skill_description": {
+    "source": "graphify/skill.md description",
+    "language": "zh-CN",
+    "translated_from": "en",
+    "display_label": "description",
+    "text": "使用 Graphify 把代码库、多模态文件（图像、PDF、文档、视频）和文本转换为可查询的 Neo4j 知识图谱，并通过其 API 与前端运行 GraphRAG。"
+  },
+  "use_cases": [
+    "代码库结构理解",
+    "项目架构问答",
+    "文档/PDF/图片/视频知识抽取",
+    "把仓库和资料转 Neo4j 图谱",
+    "GraphRAG 检索增强问答",
+    "团队 onboarding 和代码导航"
+  ],
+  "summary": "一个把代码库和多模态资料转换为知识图谱的 GraphRAG 工具：后端读取 GitHub 仓库、ZIP、PDF、DOC、PPT、图片、视频、文本或网页链接，调用 Gemini 抽取实体关系并写入 Neo4j；前端提供上传、进度、图谱可视化和对图谱提问的交互。",
+  "workflow": [
+    "配置 Google Gemini API Key、Neo4j 连接和后端环境",
+    "启动后端 API、Neo4j 和 React 前端，或使用 Docker Compose",
+    "选择输入来源：GitHub 仓库、ZIP、文件、多模态资料、文本或网页 URL",
+    "系统解析代码或文件内容，抽取实体、关系、函数、类、模块、文档片段等节点",
+    "把抽取结果写入 Neo4j 知识图谱",
+    "在前端查看图谱、节点关系和处理进度",
+    "通过 GraphRAG 对知识图谱提问，获取结构化答案",
+    "根据项目变化重新导入或增量维护图谱"
+  ],
+  "limitations": [
+    "需要 Google Gemini API Key 和可用额度，抽取质量受模型能力影响",
+    "需要 Neo4j 数据库；部署和维护成本高于普通 Markdown wiki",
+    "大型仓库或大量多模态资料会带来处理时间、成本和图谱噪音问题",
+    "抽取出的实体关系需要人工抽查，不应直接视为完全准确的架构事实",
+    "更适合知识图谱和结构化问答，不是通用笔记编辑器或传统全文搜索工具"
+  ],
+  "notes": [
+    "该项目与 karpathy-llm-wiki 都属于知识管理，但 karpathy-llm-wiki 是特定 LLM 学习资料的 Markdown wiki；Graphify 是面向任意代码库和多模态资料的 Neo4j 知识图谱/GraphRAG 工具。",
+    "该项目与 PPT 类技能完全不同，不生成演示稿或设计稿，核心产物是知识图谱和图谱问答能力。",
+    "帖子原文未收录到仓库，当前记录仅保留提炼后的结构化信息。",
+    "来源地址为 Linux.do 话题 1907342，整理时可直接查看。"
+  ]
+}

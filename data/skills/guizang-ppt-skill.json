@@ -1,0 +1,76 @@
+{
+  "id": "guizang-ppt-skill",
+  "name": "guizang-ppt-skill",
+  "author": "op7418",
+  "language": "zh-CN",
+  "repository": "https://github.com/op7418/guizang-ppt-skill",
+  "detail_page": "docs/skills/guizang-ppt-skill.md",
+  "verified_at": "2026-06-08",
+  "verification_sources": [
+    "https://github.com/op7418/guizang-ppt-skill",
+    "https://raw.githubusercontent.com/op7418/guizang-ppt-skill/main/README.md",
+    "https://raw.githubusercontent.com/op7418/guizang-ppt-skill/main/SKILL.md",
+    "https://linux.do/t/topic/2275626"
+  ],
+  "source": {
+    "type": "linux_do_topic",
+    "topic_id": "2275626",
+    "topic_url": "https://linux.do/t/topic/2275626",
+    "access_state": "publicly accessible during curation",
+    "captured_from": "summary extracted from Linux.do topic JSON and original project files",
+    "captured_at": "2026-06-08"
+  },
+  "tags": [
+    "网页 PPT",
+    "HTML 演示稿",
+    "设计排版",
+    "瑞士风",
+    "电子杂志风",
+    "封面生成",
+    "配图"
+  ],
+  "one_liner": "生成单文件 HTML 横向翻页演示稿，并支持电子杂志风、瑞士风、配图和多平台封面。",
+  "prerequisites": [
+    "浏览器预览环境",
+    "可编辑 HTML/CSS",
+    "适合文章、大纲或演讲素材"
+  ],
+  "skill_description": {
+    "source": "SKILL.md description",
+    "language": "zh-CN",
+    "display_label": "description",
+    "text": "生成横向翻页网页 PPT（单 HTML 文件），含 WebGL 背景、章节幕封、数据大字报、图片网格等模板。提供两种风格：① \"电子杂志 × 电子墨水\"（衬线 + 流体背景 + 暖色） ② \"瑞士国际主义\"（无衬线 + 网格点阵 + IKB/柠檬黄/柠檬绿/安全橙高亮）。当用户需要制作分享 / 演讲 / 发布会风格的网页 PPT，或提到\"杂志风 PPT\"、\"瑞士风 PPT\"、\"Swiss Style\"、\"horizontal swipe deck\"时使用。"
+  },
+  "use_cases": [
+    "文章转演讲稿",
+    "技术分享 PPT",
+    "产品发布演示",
+    "网页横向翻页 deck",
+    "公众号和小红书封面",
+    "PPT 配图和截图风格化"
+  ],
+  "summary": "一个面向演讲和分享场景的 HTML deck 工作流：把文章、Markdown、主题大纲或素材整理成单文件横向翻页演示稿，内置电子杂志风与瑞士国际主义两套视觉系统，并覆盖配图、截图风格化、多平台封面、低性能静态模式和版式自检。",
+  "workflow": [
+    "先澄清风格、受众、时长、素材、图片需求、主题色和硬约束",
+    "在电子杂志风和瑞士国际主义两套视觉系统中选择一种",
+    "拷贝对应 HTML 模板并替换标题等必填占位符",
+    "从预设主题色中选择，不随意自定义颜色",
+    "根据内容节奏选择布局骨架，填充文案、数据、图片和说明",
+    "可选生成配图、信息图、截图风格化素材或多平台封面",
+    "对照 checklist 做质量检查，瑞士风还可运行版式校验器",
+    "直接用浏览器打开单文件 HTML 预览，再按反馈调整字号、间距和图片落位"
+  ],
+  "limitations": [
+    "更适合 6 到 10 页左右的观点型或发布型演示，页数太多时风格容易重复",
+    "核心交付是静态 HTML deck，不是原生 PPTX，多人协作编辑和 PPTX 导出不是主流程",
+    "不适合大段表格数据、超高信息密度培训课件或需要复杂图表堆叠的内容",
+    "视觉质量依赖前期风格选择、素材质量、布局匹配和浏览器预览复核"
+  ],
+  "notes": [
+    "Linux.do 原帖反馈该 skill 生成效果较少 AI 味，但建议控制在 10 页以内。",
+    "原项目提供 Style A 电子杂志风和 Style B 瑞士国际主义两套视觉系统。",
+    "原项目包含 assets、references、scripts、README、README.en.md、SKILL.md 和 SPONSORS.md。",
+    "帖子原文未收录到仓库，当前记录仅保留提炼后的结构化信息。",
+    "来源地址为 Linux.do 话题 2275626，整理时可直接查看。"
+  ]
+}

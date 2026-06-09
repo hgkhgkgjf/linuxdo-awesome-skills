@@ -1,0 +1,80 @@
+{
+  "id": "awesome-ppt-skills",
+  "name": "awesome-ppt-skills",
+  "author": "stevenjinlong",
+  "language": "zh-CN",
+  "repository": "https://github.com/stevenjinlong/awesome-ppt-skills",
+  "detail_page": "docs/skills/awesome-ppt-skills.md",
+  "verified_at": "2026-06-08",
+  "verification_sources": [
+    "https://github.com/stevenjinlong/awesome-ppt-skills",
+    "https://raw.githubusercontent.com/stevenjinlong/awesome-ppt-skills/main/README.zh-CN.md",
+    "https://raw.githubusercontent.com/stevenjinlong/awesome-ppt-skills/main/awesome-ppt/SKILL.md",
+    "https://raw.githubusercontent.com/stevenjinlong/awesome-ppt-skills/main/awesome-ppt-std/SKILL.md",
+    "https://raw.githubusercontent.com/stevenjinlong/awesome-ppt-skills/main/awesome-ppt-editable/SKILL.md",
+    "https://linux.do/t/topic/2090997"
+  ],
+  "source": {
+    "type": "linux_do_topic",
+    "topic_id": "2090997",
+    "topic_url": "https://linux.do/t/topic/2090997",
+    "access_state": "publicly accessible during curation",
+    "captured_from": "summary extracted from Linux.do topic JSON and original project files",
+    "captured_at": "2026-06-08"
+  },
+  "tags": [
+    "PPTX",
+    "图片版 PPT",
+    "整页成图",
+    "gpt-image-2",
+    "可编辑重建",
+    "ppt-master",
+    "演示稿"
+  ],
+  "one_liner": "从一句提示词生成带完整视觉设计和文字的整页图片版 PPTX，并提供实验性可编辑重建流程。",
+  "prerequisites": [
+    "gpt-image/imagegen 图像生成能力",
+    "PPTX 打包脚本",
+    "可编辑模式需 ppt-master"
+  ],
+  "skill_description": {
+    "source": "awesome-ppt/SKILL.md description",
+    "language": "zh-CN",
+    "translated_from": "en",
+    "display_label": "description",
+    "text": "用于生成由图像模型渲染的 PowerPoint 演示稿的核心 Awesome PPT 工作流。当用户调用 $awesome-ppt，或希望制作一份精美 PPT/PPTX 时使用：通过设计整页幻灯片图像 prompt，让 gpt-image/imagegen 渲染包含所有标题、正文、标签和视觉设计的完整幻灯片，将这些渲染后的幻灯片图片组装成 PPTX；并且仅在可编辑模式下，使用 ppt-master 将图片渲染版 deck 重建为原生可编辑的文本、形状、图表和对象。"
+  },
+  "use_cases": [
+    "一句话生成 PPTX",
+    "技术分享 PPT",
+    "产品发布演示稿",
+    "整页图片版 PPT",
+    "可编辑 PPT 实验重建",
+    "多风格主题演示稿"
+  ],
+  "summary": "一个图片优先的 PPTX 生成工作流：先根据主题选择视觉风格，再为每一页生成内容、图片风格和布局 prompt，让图像模型把标题、正文、标签、图示和设计整体渲染成整页图片，最后打包为 PPTX。项目提供稳定的标准流程和实验性的可编辑重建流程。",
+  "workflow": [
+    "解析用户提示词、页数、比例、语言、风格和输出路径",
+    "从主题、受众和风格要求中选择合适的视觉方向",
+    "创建 deck brief、叙事结构和每页 slide spec",
+    "为每页写入完整 rendered_text，确保可见文字进入图片 prompt",
+    "生成整页幻灯片图片并检查文字保真度",
+    "校验 deck.json、图片路径、比例和页数",
+    "用脚本把整页图片组装成图片优先 PPTX",
+    "可编辑模式下导出 ppt-master handoff，再重建原生可编辑 PPTX",
+    "检查 PPTX 页数、媒体数量、原生文本和必要文字"
+  ],
+  "limitations": [
+    "标准流程的可见文字默认烘焙在整页图片里，不是原生可编辑文本",
+    "可编辑流程是基于图片参考和 rendered_text 的重建，不是无损位图转矢量",
+    "密集表格、精确合规文本、财务或法律类逐字审计内容不适合默认图片优先流程",
+    "输出质量依赖图像模型的文字渲染能力、prompt 质量和逐页 QA"
+  ],
+  "notes": [
+    "Linux.do 原帖推荐优先使用 Awesome PPT Std，Editable 版本能跑通但仍在优化。",
+    "原项目 README 明确建议新用户优先使用 awesome-ppt-std 或 awesome-ppt-editable，awesome-ppt 作为兼容入口保留。",
+    "原项目包含 awesome-ppt、awesome-ppt-std、awesome-ppt-editable、examples 和 scripts。",
+    "帖子原文未收录到仓库，当前记录仅保留提炼后的结构化信息。",
+    "来源地址为 Linux.do 话题 2090997，整理时可直接查看。"
+  ]
+}

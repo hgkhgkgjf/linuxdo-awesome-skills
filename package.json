@@ -1,0 +1,10 @@
+{
+  "name": "linuxdo-awesome-skills",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Local-first index and static page for Linux.do community skills",
+  "license": "MIT",
+  "scripts": {
+    "check": "node scripts/validate.mjs"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "id": "image-to-code-skill",
+  "name": "image-to-code-skill",
+  "author": "yuzhworkhard-wq",
+  "language": "zh-CN",
+  "repository": "https://github.com/yuzhworkhard-wq/image-to-code",
+  "detail_page": "docs/skills/image-to-code-skill.md",
+  "verified_at": "2026-06-08",
+  "verification_sources": [
+    "https://github.com/yuzhworkhard-wq/image-to-code",
+    "https://raw.githubusercontent.com/yuzhworkhard-wq/image-to-code/main/README.md",
+    "https://raw.githubusercontent.com/yuzhworkhard-wq/image-to-code/main/SKILL.md",
+    "https://linux.do/t/topic/2314994"
+  ],
+  "source": {
+    "type": "linux_do_topic",
+    "topic_id": "2314994",
+    "topic_url": "https://linux.do/t/topic/2314994",
+    "access_state": "requires Linux.do Lv1 login to view",
+    "captured_from": "summary extracted from manual transcript provided by repository maintainer",
+    "captured_at": "2026-06-08"
+  },
+  "tags": [
+    "图片转代码",
+    "设计还原",
+    "前端",
+    "Figma",
+    "image-to-code",
+    "mobile-ui"
+  ],
+  "one_liner": "将 UI 图片、截图或 Figma 导出稿还原为自适应代码，并导出高清透明 PNG 资源。",
+  "prerequisites": [
+    "支持图片理解的 Agent",
+    "本地图片处理脚本与 Python 依赖",
+    "适合清晰 UI 图或 Figma 导出稿"
+  ],
+  "skill_description": {
+    "source": "SKILL.md description",
+    "language": "zh-CN",
+    "display_label": "description",
+    "text": "像素级 750px 图片转代码与高清切图工作流。当 Codex 需要把当前选中的 UI 图片、截图、App/Web 设计稿、Figma 图片导出稿或设计长图转换为代码，并输出独立透明 PNG 切图资源时使用。适用于严格 1:1 等比例还原、画板宽度精确 750px、高清放大切图、防模糊和背景抠除、必要时用 image2/imagegen 抠透明 PNG、文本可编辑、简单图形原生矢量/代码化，最终代码需要自适应适配，或需要把完成稿导出/导入 Figma 为可编辑图层的任务。"
+  },
+  "use_cases": [
+    "UI 图转代码",
+    "移动端页面复刻",
+    "高清透明 PNG 切图",
+    "Figma 可编辑图层导出",
+    "AI 生成 UI 二次编辑"
+  ],
+  "summary": "一个图片转代码工作流：把 UI 图片、截图或 Figma 导出稿还原为基于 750px 基准画板的自适应前端代码，同时导出 2x/3x/4x 高清透明 PNG 资源，使用 layers.manifest.json 串联布局、切图、QA 和可选 Figma 图层导出。",
+  "workflow": [
+    "检查图片中的元素、文字和尺寸",
+    "把原图归一化到 750px 的统一手机坐标体系",
+    "生成 layers.manifest.json",
+    "切图前预览每个目标资源的 bbox",
+    "把资源按 2x 到 4x 放大导出，提升清晰度",
+    "文本和简单图形使用代码实现，图标和插画切图并尽量强制透明背景",
+    "验证 375px 以及其他手机宽度下的适配情况",
+    "通过截图和复核步骤检查最终结果",
+    "可选输出可编辑的 Figma 图层规格，或配合相关 web-to-figma 插件使用"
+  ],
+  "limitations": [
+    "输出质量依赖源图清晰度、bbox 测量、manifest 完整度和 PNG 透明度审计",
+    "Figma 输出通常需要额外生成 layer spec 或本地 importer",
+    "核心目标是严格视觉还原，不是重新设计或自动优化界面"
+  ],
+  "notes": [
+    "原项目 README 以 Codex skill 形式发布，但本索引按通用技能能力介绍，不在读者视图限定平台。",
+    "原项目强调 750px 是测量、定位和 QA 基准，不是唯一最终显示宽度。",
+    "原项目包含 agents、references、scripts、README、SKILL.md 和 requirements.txt。",
+    "帖子原文未收录到仓库，当前记录仅保留提炼后的结构化信息。",
+    "来源地址为 Linux.do 话题 2314994，当前标记为 Lv1 登录后可查看。"
+  ]
+}
