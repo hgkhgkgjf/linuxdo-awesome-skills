@@ -463,11 +463,11 @@
       </div>
       <div class="stats" aria-label="索引统计">
         <div class="stat">
-          <strong id="skill-count">13</strong>
+          <strong id="skill-count">14</strong>
           <span>已整理技能</span>
         </div>
         <div class="stat">
-          <strong id="source-count">13</strong>
+          <strong id="source-count">14</strong>
           <span>论坛来源已关联</span>
         </div>
       </div>
@@ -507,6 +507,9 @@
         <button class="chip" type="button" data-filter="微信公众号" aria-pressed="false">微信公众号</button>
         <button class="chip" type="button" data-filter="文章读取" aria-pressed="false">文章读取</button>
         <button class="chip" type="button" data-filter="内容提取" aria-pressed="false">内容提取</button>
+        <button class="chip" type="button" data-filter="Agent 指令" aria-pressed="false">Agent 指令</button>
+        <button class="chip" type="button" data-filter="渐进式披露" aria-pressed="false">渐进式披露</button>
+        <button class="chip" type="button" data-filter="上下文治理" aria-pressed="false">上下文治理</button>
         <button class="chip" type="button" data-filter="元技能" aria-pressed="false">元技能</button>
         <button class="chip" type="button" data-filter="技能树" aria-pressed="false">技能树</button>
         <button class="chip" type="button" data-filter="Self-evolving Agent" aria-pressed="false">自进化</button>
@@ -687,6 +690,20 @@
         repository: "https://github.com/jeffchan813/wechat-article-reader",
         stars: "https://github.com/jeffchan813/wechat-article-reader/stargazers",
         source: "https://linux.do/t/topic/1956732/34",
+        forumIcon: "https://cdn3.ldstatic.com/optimized/4X/c/c/d/ccd8c210609d498cbeb3d5201d4c259348447562_2_32x32.png"
+      },
+      {
+        name: "agents-progressive-disclosure",
+        author: "Caph-dev",
+        oneLiner: "把臃肿的 AGENTS.md、CLAUDE.md 等 Agent 指令文件重构成精简入口和按需读取文档，降低常驻上下文负担。",
+        tags: ["Agent 指令", "渐进式披露", "AGENTS.md", "CLAUDE.md", "上下文治理", "文档路由", "规则重构", "元技能"],
+        prerequisites: ["已有 AGENTS.md/CLAUDE.md/GEMINI.md", "可编辑项目文档或规则目录", "建议具备 Git 或备份能力", "冲突规则可能需要人工确认"],
+        useCases: ["重构过长的 Agent 指令文件", "把低频规则移动到按需文档", "降低常驻上下文成本", "梳理团队工具和部署规则", "检测并处理规则冲突"],
+        limitations: ["它处理的是 Agent 指令文件结构，不直接生成业务代码或报告", "含糊或冲突规则可能需要人工确认", "安全和工具优先级等关键规则仍应保留在入口文件"],
+        detail: "docs/skills/agents-progressive-disclosure.md",
+        repository: "https://github.com/Caph-dev/agents-progressive-disclosure",
+        stars: "https://github.com/Caph-dev/agents-progressive-disclosure/stargazers",
+        source: "https://linux.do/t/topic/2263095",
         forumIcon: "https://cdn3.ldstatic.com/optimized/4X/c/c/d/ccd8c210609d498cbeb3d5201d4c259348447562_2_32x32.png"
       },
       {

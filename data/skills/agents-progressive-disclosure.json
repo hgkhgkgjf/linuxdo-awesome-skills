@@ -1,0 +1,81 @@
+{
+  "id": "agents-progressive-disclosure",
+  "name": "agents-progressive-disclosure",
+  "author": "Caph-dev",
+  "language": "zh-CN",
+  "repository": "https://github.com/Caph-dev/agents-progressive-disclosure",
+  "detail_page": "docs/skills/agents-progressive-disclosure.md",
+  "verified_at": "2026-06-12",
+  "verification_sources": [
+    "https://linux.do/t/topic/2263095",
+    "https://github.com/Caph-dev/agents-progressive-disclosure",
+    "https://github.com/Caph-dev/agents-progressive-disclosure/blob/main/README.md",
+    "https://github.com/Caph-dev/agents-progressive-disclosure/blob/main/SKILL.md",
+    "https://api.github.com/repos/Caph-dev/agents-progressive-disclosure"
+  ],
+  "source": {
+    "type": "linux_do_topic",
+    "topic_id": "2263095",
+    "topic_url": "https://linux.do/t/topic/2263095",
+    "access_state": "publicly accessible during curation",
+    "captured_from": "summary extracted from Linux.do topic, repository README, SKILL.md, and GitHub metadata",
+    "captured_at": "2026-06-12"
+  },
+  "tags": [
+    "Agent 指令",
+    "渐进式披露",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "上下文治理",
+    "文档路由",
+    "规则重构",
+    "元技能"
+  ],
+  "one_liner": "把臃肿的 AGENTS.md、CLAUDE.md 等 Agent 指令文件重构成精简入口和按需读取的专项文档，降低常驻上下文负担。",
+  "prerequisites": [
+    "已有 AGENTS.md/CLAUDE.md/GEMINI.md 等指令文件",
+    "可编辑项目文档或规则目录",
+    "建议具备 Git 或备份能力",
+    "需要人工确认无法自动判断的规则冲突"
+  ],
+  "skill_description": {
+    "source": "SKILL.md frontmatter description",
+    "language": "zh-CN",
+    "translated_from": "en",
+    "display_label": "description",
+    "text": "将臃肿的 AGENTS.md/CLAUDE.md 风格指令文件重构为紧凑路由入口和聚焦的按需文档。当用户要求应用渐进式披露、把 agent 规则拆分到 docs、减少指令膨胀，或把一个大型规则文件变成入口文件时使用。"
+  },
+  "use_cases": [
+    "重构过长的 AGENTS.md 或 CLAUDE.md",
+    "把低频规则移动到按需文档",
+    "降低 Agent 每次任务的常驻上下文成本",
+    "梳理团队工具、测试、部署和安全规则",
+    "检测并处理指令文件里的规则冲突",
+    "为多 Agent/多工具项目建立文档路由入口"
+  ],
+  "summary": "agents-progressive-disclosure 是一个面向 Agent 指令文件治理的 skill：它把根目录的 AGENTS.md、CLAUDE.md、GEMINI.md 或类似文件视为“路由入口”，只保留高频、长期、必须始终遵守的规则；把命令清单、搜索策略、包管理器约束、部署细节、框架规则、长示例等低频内容移动到聚焦的 docs/rules 文件中，并在入口文件里明确“遇到什么任务读哪份文档”。它强调先完整读取、扫描冲突、分类规则、保留意图、重写入口和验证规则未丢失。",
+  "workflow": [
+    "确定目标指令文件，通常是 AGENTS.md、CLAUDE.md、GEMINI.md 或项目等价文件",
+    "完整读取目标文件，并查看现有 docs、rules 或平台专属规则目录",
+    "在移动规则前扫描冲突，例如代码风格、包管理器、测试命令、安全边界或优先级冲突",
+    "把规则分为入口常驻规则和任务相关细节两类",
+    "根据现有项目约定或规则簇设计 docs/rules 路由地图",
+    "创建同目录备份后，将入口文件重写为精简路由器",
+    "把长规则移动到聚焦文档，同时保留 frontmatter、imports、path globs 和文件扩展名",
+    "用行数、关键词清单和最终复读验证规则已保留且入口能正确指向按需文档"
+  ],
+  "limitations": [
+    "它处理的是 Agent 指令文件结构，不直接生成业务代码、报告或知识图谱",
+    "重构质量依赖对原规则意图的理解，含糊或冲突规则可能需要人工确认",
+    "不能因为规则冗长就删除规则，必须移动到合适位置并验证可检索",
+    "安全、权限和工具优先级等关键规则仍应保留在入口文件，不适合只下沉到按需文档",
+    "过度拆分会造成许多小文档和重复责任边界，需要克制设计 docs/rules 地图"
+  ],
+  "notes": [
+    "该项目与 GenericAgent 都属于 Agent 能力建设，但 GenericAgent 关注 Agent 自我生成技能树；agents-progressive-disclosure 关注人为维护的 Agent 指令文件如何降低常驻上下文和提升规则可读性。",
+    "该项目与 deep-research 不同：deep-research 生成调研报告，agents-progressive-disclosure 重构 Agent 规则入口和按需文档。",
+    "该项目和本仓库自身的 README/CLAUDE 分工原则高度相关：README 面向读者，CLAUDE.md 面向助手，长规则应按需读取。",
+    "帖子原文未收录到仓库，当前记录仅保留提炼后的结构化信息。",
+    "来源地址为 Linux.do 话题 2263095，整理时可直接查看。"
+  ]
+}
