@@ -224,6 +224,7 @@
     }
 
     .skill-card {
+      position: relative;
       display: flex;
       flex-direction: column;
       border: 1px solid var(--line);
@@ -233,8 +234,13 @@
     }
 
     .skill-card:hover {
+      z-index: 3;
       transform: translateY(-2px);
       box-shadow: 0 18px 50px rgba(24, 36, 29, 0.14);
+    }
+
+    .skill-card:focus-within {
+      z-index: 3;
     }
 
     .card-head {
@@ -313,11 +319,15 @@
 
     .tag-list li,
     .use-list li {
+      position: relative;
+      max-width: 100%;
       border: 1px solid var(--line);
       padding: 4px 7px;
       background: #fbfcf8;
       font-size: 11px;
       line-height: 1.25;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
 
     .tag-list li {
@@ -332,6 +342,56 @@
     .use-list li.more {
       color: var(--muted);
       background: rgba(245, 248, 241, 0.72);
+      cursor: help;
+      outline-offset: 2px;
+    }
+
+    .tag-list li.more::after,
+    .use-list li.more::after {
+      position: absolute;
+      right: 0;
+      top: calc(100% + 8px);
+      z-index: 20;
+      display: none;
+      width: max-content;
+      max-width: min(300px, 72vw);
+      border: 1px solid var(--ink);
+      padding: 8px 10px;
+      background: var(--ink);
+      color: #fff;
+      box-shadow: 5px 5px 0 var(--yellow);
+      content: attr(data-more);
+      font-size: 11px;
+      line-height: 1.55;
+      text-align: left;
+      white-space: pre-line;
+    }
+
+    .tag-list li.more::before,
+    .use-list li.more::before {
+      position: absolute;
+      right: 12px;
+      top: calc(100% + 3px);
+      z-index: 21;
+      display: none;
+      width: 10px;
+      height: 10px;
+      border-left: 1px solid var(--ink);
+      border-top: 1px solid var(--ink);
+      background: var(--ink);
+      content: "";
+      transform: rotate(45deg);
+    }
+
+    .tag-list li.more:hover::after,
+    .tag-list li.more:focus-visible::after,
+    .use-list li.more:hover::after,
+    .use-list li.more:focus-visible::after,
+    .tag-list li.more:hover::before,
+    .tag-list li.more:focus-visible::before,
+    .use-list li.more:hover::before,
+    .use-list li.more:focus-visible::before {
+      display: block;
     }
 
     .limit-note {
@@ -748,13 +808,24 @@
       return haystack.includes(query.toLowerCase());
     }
 
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[char]));
+    }
+
     function createList(items, className) {
       const visible = items.slice(0, 4);
-      const hiddenCount = items.length - visible.length;
-      const more = hiddenCount > 0 ? [`+${hiddenCount}`] : [];
+      const hidden = items.slice(4);
+      const hiddenCount = hidden.length;
+      const moreText = hidden.map((item) => `• ${item}`).join("\n");
       return `<ul class="${className}">${
-        visible.map((item) => `<li>${item}</li>`).join("")
-      }${more.map((item) => `<li class="more">${item}</li>`).join("")}</ul>`;
+        visible.map((item) => `<li>${escapeHtml(item)}</li>`).join("")
+      }${hiddenCount > 0 ? `<li class="more" tabindex="0" title="${escapeHtml(moreText)}" data-more="${escapeHtml(moreText)}">+${hiddenCount}</li>` : ""}</ul>`;
     }
 
     function isRenderableLink(url) {
