@@ -437,6 +437,17 @@
       background: #fff;
     }
 
+    .star-count {
+      cursor: default;
+      user-select: none;
+    }
+
+    .star-count::before {
+      color: var(--yellow);
+      content: "★";
+      text-shadow: 1px 1px 0 var(--ink);
+    }
+
     .forum-link img {
       width: 14px;
       height: 14px;
@@ -789,6 +800,7 @@
     const sourceCount = document.querySelector("#source-count");
     const chips = Array.from(document.querySelectorAll(".chip"));
     let activeFilter = "all";
+    const starCache = new Map();
     const knownLocalLinks = new Set([
       "README.md",
       "docs/collection-policy.md",
@@ -834,21 +846,62 @@
       return knownLocalLinks.has(url);
     }
 
+    function getGitHubRepoSlug(repository) {
+      try {
+        const url = new URL(repository);
+        const [owner, repo] = url.pathname.split("/").filter(Boolean);
+        return owner && repo ? `${owner}/${repo}` : "";
+      } catch {
+        return "";
+      }
+    }
+
+    function formatStars(count) {
+      if (!Number.isFinite(count)) return "--";
+      if (count >= 1000) {
+        const value = count / 1000;
+        return `${value.toFixed(value >= 10 ? 0 : 1)}k`;
+      }
+      return String(count);
+    }
+
+    async function loadStarCount(repo) {
+      if (!repo) return "--";
+      if (!starCache.has(repo)) {
+        starCache.set(repo, fetch(`https://api.github.com/repos/${repo}`)
+          .then((response) => response.ok ? response.json() : Promise.reject(new Error("GitHub API failed")))
+          .then((data) => formatStars(data.stargazers_count))
+          .catch(() => "--"));
+      }
+      return starCache.get(repo);
+    }
+
+    function hydrateStars() {
+      document.querySelectorAll(".star-count[data-repo]").forEach((item) => {
+        const repo = item.dataset.repo;
+        loadStarCount(repo).then((count) => {
+          item.textContent = `Stars ${count}`;
+          item.setAttribute("aria-label", `${repo} GitHub Stars ${count}`);
+        });
+      });
+    }
+
     function createActions(skill) {
+      const repo = getGitHubRepoSlug(skill.repository);
       const actions = [
         { label: "详情", href: skill.detail, className: "primary" },
         { label: "GitHub", href: skill.repository, className: "secondary" },
-        { label: "Stars", href: skill.stars, className: "secondary" },
         { label: "论坛", href: skill.source, className: "secondary forum-link", icon: skill.forumIcon }
       ];
-      return actions
+      const starBadge = `<span class="button secondary star-count" data-repo="${escapeHtml(repo)}" aria-label="${escapeHtml(repo)} GitHub Stars">Stars --</span>`;
+      return `${actions
         .filter((action) => isRenderableLink(action.href))
         .map((action) => `
           <a class="button ${action.className}" href="${action.href}" target="_blank" rel="noopener noreferrer">
             ${action.icon ? `<img src="${action.icon}" alt="" width="14" height="14">` : ""}
             ${action.label}
           </a>
-        `).join("");
+        `).join("")}${starBadge}`;
     }
 
     function render() {
@@ -893,6 +946,7 @@
         </article>
       `).join("");
       emptyState.style.display = filtered.length ? "none" : "block";
+      hydrateStars();
     }
 
     chips.forEach((chip) => {
