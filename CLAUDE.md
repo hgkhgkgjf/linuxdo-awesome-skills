@@ -74,6 +74,8 @@
 - `wechat-article-reader` 对外介绍重点应放在“微信公众号文章读取、curl 模拟浏览器请求、Python 正则提取 js_content、摘要/全文/图片链接/原始 HTML 输出、轻量无浏览器依赖”。它和 `karpathy-llm-wiki` 都涉及内容整理，但本条只负责单篇或批量微信公众号文章提取；它和 `graphify` 的区别是后者面向 Neo4j 图谱和 GraphRAG。
 - 第十二条收录是 `GenericAgent`，来源于 Linux.do 话题 `1962519` 和 GitHub 项目 `lsdefine/GenericAgent`，内容基于 Linux.do 话题 JSON、GitHub 仓库元数据与原项目 README 综合提炼，不保存帖子原文。
 - `GenericAgent` 必须作为“元技能与方法论”展示：它不包含普通意义上的可安装 skill 本体，而是主张 Agent 在对话和任务执行过程中自我生成、沉淀和迭代技能。对外介绍重点应放在“Self-evolving Agent、任务后反思沉淀 SOP/Skill、分层记忆、技能树、少量原子工具、低 token 开销、真实浏览器/本地系统控制”。
+- 第十三条收录是 `deep-research`，来源于 Linux.do 话题 `2312664` 和 GitHub 项目 `hoolulu/deep-research`，内容基于 Linux.do 话题、原项目 README 与 `SKILL.md` 综合提炼，不保存帖子原文。
+- `deep-research` 对外介绍重点应放在“/research 主题生成深度调研报告、19 种语言、quick/standard/deep 三档深度、在线 SearXNG + Scrapling 抓取、本地 MD/TXT/PDF/DOCX 资料、并行章节撰写、引用转换和质量检查”。它和 `graphify` 都处理资料，但本条产物是 Markdown 调研报告而不是 Neo4j 图谱；它和 `karpathy-llm-wiki` 的区别是偏主题报告生成，不是长期 wiki 维护。
 - 仓库对外内容默认使用中文；底层 JSON 字段名保持英文，避免后续脚本维护成本升高。
 - 后续优先在现有 JSON 结构上补字段和演进，不创建平行台账文件。
 - 结构化数据中的 `skill_description` 用于保存可展示的原始 skill description，`display_label` 统一为 `description`，服务 README 和未来静态页扩展。

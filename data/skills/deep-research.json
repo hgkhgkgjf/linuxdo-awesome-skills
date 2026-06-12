@@ -1,0 +1,80 @@
+{
+  "id": "deep-research",
+  "name": "deep-research",
+  "author": "hoolulu",
+  "language": "zh-CN",
+  "repository": "https://github.com/hoolulu/deep-research",
+  "detail_page": "docs/skills/deep-research.md",
+  "verified_at": "2026-06-12",
+  "verification_sources": [
+    "https://linux.do/t/topic/2312664",
+    "https://github.com/hoolulu/deep-research",
+    "https://github.com/hoolulu/deep-research/blob/main/README.md",
+    "https://github.com/hoolulu/deep-research/blob/main/SKILL.md"
+  ],
+  "source": {
+    "type": "linux_do_topic",
+    "topic_id": "2312664",
+    "topic_url": "https://linux.do/t/topic/2312664",
+    "access_state": "publicly accessible during curation",
+    "captured_from": "summary extracted from Linux.do topic, repository README, and SKILL.md",
+    "captured_at": "2026-06-12"
+  },
+  "tags": [
+    "深度调研",
+    "研究报告",
+    "多语言",
+    "多 Agent",
+    "SearXNG",
+    "Scrapling",
+    "本地资料",
+    "质量检查"
+  ],
+  "one_liner": "通过 `/research` 主题自动生成多语言深度调研报告，支持在线搜索、本地资料、三档深度、多 Agent 并行撰写和质量检查。",
+  "prerequisites": [
+    "LLM 运行时或可适配的 Agent 工具",
+    "在线模式需 Scrapling 与网络访问",
+    "默认使用内置 SearXNG 搜索端点",
+    "本地资料模式支持 MD/TXT/PDF/DOCX"
+  ],
+  "skill_description": {
+    "source": "SKILL.md frontmatter description",
+    "language": "zh-CN",
+    "translated_from": "en",
+    "display_label": "description",
+    "text": "专业深度调研报告生成：通过多 Agent 协作、并行章节撰写、自动锁定最新数据、多语言输出和内置质量检查生成报告。"
+  },
+  "use_cases": [
+    "行业研究和公开资料调研",
+    "竞品、市场、政策或技术主题分析",
+    "把本地资料整理成结构化研究报告",
+    "生成带引用、目录和免责声明的 Markdown 报告",
+    "多语言研究报告输出",
+    "在成本可控的前提下替代浅层搜索总结"
+  ],
+  "summary": "deep-research 是一个面向深度调研报告生成的 Skill：用户输入 `/research 主题` 后，系统先分析主题和语言，生成大纲与搜索计划，再通过在线搜索或本地资料读取形成数据池，随后并行撰写章节，最后执行引用转换、质量验证和报告装配。它强调公开来源可追溯、正反观点并存、三档深度、多语言输出和本地 Markdown 报告归档。",
+  "workflow": [
+    "输入 `/research 主题`，或指定 quick、standard、deep 等深度模式",
+    "自动识别主题语言，并按目标语言规划调研框架",
+    "生成大纲、章节结构和搜索计划",
+    "在线模式并行使用建议源、SearXNG、内置 sources.json 和免费源补强，随后用 Scrapling 抓取全文",
+    "离线模式读取用户指定的 MD、TXT、PDF 或 DOCX 本地资料",
+    "把资料整理成数据池，按章节并行撰写正文",
+    "执行 validate、assemble-report、convert-citations、qa-report 等质量检查与装配",
+    "输出带目录、元数据、引用、参考来源和免责声明的 Markdown 报告"
+  ],
+  "limitations": [
+    "在线模式需要 Scrapling、网络访问和可用搜索链路，部署成本高于轻量脚本型 skill",
+    "非 OpenCode 环境需要把命令入口、多 Agent 编排和更新机制适配到当前工具",
+    "报告生成时间和 token 消耗随主题复杂度、深度模式和资料数量显著波动",
+    "主要基于公开资料和用户提供文件，不等同于付费数据库或一手调研",
+    "长报告仍需人工复核事实、引用、数据口径和结论适用范围"
+  ],
+  "notes": [
+    "该项目与 graphify 都能处理资料，但 deep-research 的核心产物是 Markdown 深度调研报告；graphify 的核心产物是 Neo4j 知识图谱和 GraphRAG 问答。",
+    "该项目与 karpathy-llm-wiki 都属于知识整理，但 karpathy-llm-wiki 面向长期 Markdown wiki 维护；deep-research 更偏一次性或周期性的调研报告生成流水线。",
+    "该项目与 wechat-article-reader 都能读取公开内容，但 wechat-article-reader 只负责公众号正文提取；deep-research 负责调研规划、资料采集、章节撰写和报告验收。",
+    "帖子原文未收录到仓库，当前记录仅保留提炼后的结构化信息。",
+    "来源地址为 Linux.do 话题 2312664，整理时可直接查看。"
+  ]
+}

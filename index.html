@@ -463,11 +463,11 @@
       </div>
       <div class="stats" aria-label="索引统计">
         <div class="stat">
-          <strong id="skill-count">12</strong>
+          <strong id="skill-count">13</strong>
           <span>已整理技能</span>
         </div>
         <div class="stat">
-          <strong id="source-count">12</strong>
+          <strong id="source-count">13</strong>
           <span>论坛来源已关联</span>
         </div>
       </div>
@@ -501,6 +501,9 @@
         <button class="chip" type="button" data-filter="LLM 学习" aria-pressed="false">LLM 学习</button>
         <button class="chip" type="button" data-filter="知识图谱" aria-pressed="false">知识图谱</button>
         <button class="chip" type="button" data-filter="GraphRAG" aria-pressed="false">GraphRAG</button>
+        <button class="chip" type="button" data-filter="深度调研" aria-pressed="false">深度调研</button>
+        <button class="chip" type="button" data-filter="研究报告" aria-pressed="false">研究报告</button>
+        <button class="chip" type="button" data-filter="多 Agent" aria-pressed="false">多 Agent</button>
         <button class="chip" type="button" data-filter="微信公众号" aria-pressed="false">微信公众号</button>
         <button class="chip" type="button" data-filter="文章读取" aria-pressed="false">文章读取</button>
         <button class="chip" type="button" data-filter="内容提取" aria-pressed="false">内容提取</button>
@@ -656,6 +659,20 @@
         repository: "https://github.com/safishamsi/graphify",
         stars: "https://github.com/safishamsi/graphify/stargazers",
         source: "https://linux.do/t/topic/1907342",
+        forumIcon: "https://cdn3.ldstatic.com/optimized/4X/c/c/d/ccd8c210609d498cbeb3d5201d4c259348447562_2_32x32.png"
+      },
+      {
+        name: "deep-research",
+        author: "hoolulu",
+        oneLiner: "通过 /research 自动生成多语言深度调研报告，支持在线搜索、本地资料、多 Agent 并行撰写和质量检查。",
+        tags: ["深度调研", "研究报告", "多语言", "多 Agent", "SearXNG", "Scrapling", "本地资料", "质量检查"],
+        prerequisites: ["LLM 运行时或可适配 Agent 工具", "在线模式需 Scrapling 与网络访问", "默认使用内置 SearXNG 搜索端点", "本地资料支持 MD/TXT/PDF/DOCX"],
+        useCases: ["行业研究和公开资料调研", "竞品、市场、政策或技术主题分析", "把本地资料整理成结构化报告", "生成带引用的 Markdown 报告", "多语言研究报告输出"],
+        limitations: ["在线模式需要 Scrapling、网络访问和可用搜索链路", "非 OpenCode 环境需要适配命令入口和多 Agent 编排", "长报告仍需人工复核事实、引用和数据口径"],
+        detail: "docs/skills/deep-research.md",
+        repository: "https://github.com/hoolulu/deep-research",
+        stars: "https://github.com/hoolulu/deep-research/stargazers",
+        source: "https://linux.do/t/topic/2312664",
         forumIcon: "https://cdn3.ldstatic.com/optimized/4X/c/c/d/ccd8c210609d498cbeb3d5201d4c259348447562_2_32x32.png"
       },
       {
