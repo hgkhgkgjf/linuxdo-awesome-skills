@@ -1,0 +1,79 @@
+{
+  "id": "opencli",
+  "name": "OpenCLI",
+  "author": "jackwener",
+  "language": "zh-CN",
+  "repository": "https://github.com/jackwener/OpenCLI",
+  "detail_page": "docs/skills/opencli.md",
+  "verified_at": "2026-06-16",
+  "verification_sources": [
+    "https://linux.do/t/topic/2269051",
+    "https://github.com/jackwener/OpenCLI",
+    "https://github.com/jackwener/OpenCLI/blob/main/README.zh-CN.md",
+    "https://github.com/jackwener/OpenCLI/tree/main/skills"
+  ],
+  "source": {
+    "type": "linux_do_topic_reply",
+    "topic_id": "2269051",
+    "topic_url": "https://linux.do/t/topic/2269051",
+    "access_state": "publicly accessible during curation",
+    "captured_from": "summary extracted from Linux.do recommendation thread, repository README.zh-CN, repository metadata, and official skills",
+    "captured_at": "2026-06-16"
+  },
+  "tags": [
+    "网页 CLI",
+    "浏览器自动化",
+    "真实浏览器",
+    "CLI 枢纽",
+    "站点适配器",
+    "Browser Bridge",
+    "桌面应用",
+    "Agent 工具链"
+  ],
+  "one_liner": "把网站、真实浏览器会话、Electron 应用和本地工具统一封装成 Agent 可调用的 CLI。",
+  "prerequisites": [
+    "Node.js 20+",
+    "OpenCLI npm 包",
+    "Browser Bridge Chrome 扩展",
+    "需要登录态时先在真实浏览器登录"
+  ],
+  "skill_description": {
+    "source": "skills/opencli-browser/SKILL.md frontmatter description",
+    "language": "zh-CN",
+    "translated_from": "en",
+    "display_label": "description",
+    "text": "当 Agent 需要通过 opencli 驱动真实 Chrome 窗口时使用：检查页面、填写表单、点击登录后流程，或临时提取数据。覆盖 selector-first 目标契约、复合表单字段、过期引用处理、网络捕获，以及 CLI 返回的 Agent 原生结构化 envelope。它不用于编写 adapter；编写 adapter 请使用 opencli-adapter-author。"
+  },
+  "use_cases": [
+    "用真实 Chrome 登录态操作任意网页",
+    "把 100+ 站点的常见操作封装成 opencli 命令",
+    "为新网站创建可复用 adapter",
+    "把本地 CLI 工具统一注册到 opencli",
+    "通过 CDP 控制 Cursor、Codex、ChatGPT App 等 Electron 应用",
+    "用网络捕获和 sitemap 辅助站点自动化"
+  ],
+  "summary": "OpenCLI 是一个面向人类和 AI Agent 的 CLI 枢纽：它既提供小红书、B 站、知乎、Twitter、Reddit、HackerNews 等站点的内置命令，也能通过 Browser Bridge 复用真实 Chrome 登录态执行导航、点击、表单填写、数据提取和网络捕获；当某个网站还没有覆盖时，可以用 opencli-adapter-author 从站点侦察、endpoint 发现、字段解码到 adapter verify 完成闭环。它还支持把 gh、docker、notion、企业微信等本地 CLI 以及 Electron 桌面应用接入统一入口。",
+  "workflow": [
+    "安装 Node.js 20+ 与 @jackwener/opencli",
+    "安装 OpenCLI Browser Bridge Chrome 扩展",
+    "运行 opencli doctor 验证浏览器连接",
+    "优先使用现有 opencli <site> <command> 命令",
+    "缺少能力时使用 opencli browser 驱动真实页面",
+    "需要沉淀复用能力时用 opencli-adapter-author 编写 adapter",
+    "用 verify、trace 和站点记忆检查 adapter 输出",
+    "把外部 CLI 或桌面应用注册进统一入口"
+  ],
+  "limitations": [
+    "依赖 Node.js、OpenCLI 安装和 Browser Bridge 扩展连通性",
+    "真实登录态能力意味着写操作有实际副作用，需要谨慎确认",
+    "站点适配器会受网站结构、登录状态、接口和反爬策略变化影响",
+    "adapter 编写需要站点侦察、字段核对和 verify，不适合只想一次性点网页的轻任务"
+  ],
+  "notes": [
+    "同一 Linux.do 推荐来源还推荐了 agent-cli-creator、CLI-Anything 和 bb-browser，均属于 Agent 工具链。",
+    "OpenCLI 与 agent-cli-creator 的区别：agent-cli-creator 是生成某个网站 CLI 的方法流；OpenCLI 已经提供 CLI 运行时、Browser Bridge、内置站点 adapter、adapter 编写技能和 CLI 枢纽。",
+    "OpenCLI 与 bb-browser 都强调真实浏览器登录态；OpenCLI 更偏完整生态和 adapter/插件枢纽，bb-browser 更偏轻量浏览器 CLI/MCP 执行层。",
+    "OpenCLI 与 CLI-Anything 都是 CLI 化生态；OpenCLI 更聚焦网站、浏览器和桌面应用，CLI-Anything 更强调专业软件 CLI 市场。",
+    "帖子原文未收录到仓库，当前记录仅保留提炼后的结构化信息。"
+  ]
+}

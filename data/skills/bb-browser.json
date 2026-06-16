@@ -1,0 +1,78 @@
+{
+  "id": "bb-browser",
+  "name": "bb-browser",
+  "author": "epiral",
+  "language": "zh-CN",
+  "repository": "https://github.com/epiral/bb-browser",
+  "detail_page": "docs/skills/bb-browser.md",
+  "verified_at": "2026-06-16",
+  "verification_sources": [
+    "https://linux.do/t/topic/2269051",
+    "https://github.com/epiral/bb-browser",
+    "https://github.com/epiral/bb-browser/blob/main/README.zh-CN.md",
+    "https://github.com/epiral/bb-browser/blob/main/skills/bb-browser/SKILL.md"
+  ],
+  "source": {
+    "type": "linux_do_topic_reply",
+    "topic_id": "2269051",
+    "topic_url": "https://linux.do/t/topic/2269051",
+    "access_state": "publicly accessible during curation",
+    "captured_from": "summary extracted from Linux.do recommendation thread, repository README.zh-CN, repository metadata, and SKILL.md",
+    "captured_at": "2026-06-16"
+  },
+  "tags": [
+    "浏览器自动化",
+    "真实浏览器",
+    "登录态",
+    "Browser API",
+    "MCP",
+    "网页 CLI",
+    "站点适配器",
+    "信息提取"
+  ],
+  "one_liner": "把真实 Chrome 登录态变成 CLI 和 MCP，让 Agent 直接读取网页、调用带登录态 fetch、操作表单并运行站点 adapter。",
+  "prerequisites": [
+    "Node.js 18+",
+    "bb-browser npm 包",
+    "可连接的真实 Chrome",
+    "需要私域数据时先登录对应网站"
+  ],
+  "skill_description": {
+    "source": "skills/bb-browser/SKILL.md frontmatter description",
+    "language": "zh-CN",
+    "display_label": "description",
+    "text": "强大的信息获取与浏览器自动化工具。通过浏览器 + 用户登录态，获取公域和私域信息。可访问任意网页、内部系统、登录后页面，执行表单填写、信息提取、页面操作。支持 site 系统（36 平台 103 命令一键调用）、带登录态的 fetch、网络请求拦截与 mock、操作录制等高级功能。"
+  },
+  "use_cases": [
+    "用真实浏览器登录态获取公域和私域网页信息",
+    "执行打开页面、快照、点击、填写、截图等浏览器操作",
+    "用 site 系统一键调用 Twitter、知乎、GitHub、YouTube 等 adapter",
+    "在浏览器上下文执行带 Cookie 的 fetch",
+    "通过 MCP 接入 Claude Code、Cursor 等工具",
+    "让 Agent 逆向并创建新网站 adapter"
+  ],
+  "summary": "bb-browser 的口号是“你的浏览器就是 API”。它通过 CLI 和 MCP server 连接真实 Chrome，复用用户已有登录态，提供 snapshot、click、fill、eval、fetch、network、screenshot、trace 等浏览器操作命令；同时通过 bb-sites 社区 adapter 把几十个平台封装成结构化命令。它适合把网页读取、内部系统操作、带登录态信息获取和网站 CLI 化作为 Agent 的通用执行层。",
+  "workflow": [
+    "全局安装 bb-browser",
+    "运行 bb-browser site update 获取社区 adapter",
+    "用 bb-browser site list/search/recommend 查找命令",
+    "直接运行 bb-browser site <name> 获取结构化结果",
+    "需要自由操作时用 open、snapshot -i、click、fill、eval 等命令",
+    "需要带登录态请求时用 bb-browser fetch",
+    "需要调试时查看 network、console、errors 或 trace",
+    "需要接入 AI 工具时启动 bb-browser --mcp"
+  ],
+  "limitations": [
+    "依赖真实浏览器连接、本地 daemon 或 MCP 运行状态",
+    "私域数据和写操作复用真实登录态，需要明确用户授权和结果确认",
+    "站点 adapter 受网页结构、接口、权限和登录状态变化影响",
+    "复杂新站点 CLI 化仍需要逆向、测试和 adapter 维护"
+  ],
+  "notes": [
+    "同一 Linux.do 推荐来源还推荐了 agent-cli-creator、OpenCLI 和 CLI-Anything，均属于 Agent 工具链。",
+    "bb-browser 与 OpenCLI 都强调真实浏览器登录态；bb-browser 更偏轻量 CLI/MCP 执行层和 bb-sites adapter，OpenCLI 更偏完整 CLI 枢纽、插件和 adapter 开发生态。",
+    "bb-browser 与 agent-cli-creator 的区别：agent-cli-creator 是创建新网站 CLI 的流程，bb-browser 是可直接运行的浏览器 CLI/MCP 工具。",
+    "bb-browser 与 CLI-Anything 的区别：CLI-Anything 面向专业软件 CLI 市场，bb-browser 面向网页和浏览器登录态。",
+    "帖子原文未收录到仓库，当前记录仅保留提炼后的结构化信息。"
+  ]
+}

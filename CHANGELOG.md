@@ -27,6 +27,7 @@
 - 新增第十三条 `deep-research`，补充深度调研报告生成、多语言输出、本地资料和多 Agent 协作类技能
 - 新增第十四条 `agents-progressive-disclosure`，补充 Agent 指令文件渐进式披露、上下文治理和按需文档路由类技能
 - 新增第十五条 `agent-cli-creator`，补充基于 kimi-webbridge 的网站 CLI 生成、真实 Chrome 登录态复用和伴随 skill 生成类技能
+- 新增第十六至十八条 `OpenCLI`、`CLI-Anything`、`bb-browser`，补充同源推荐中的网页/软件 CLI 化、真实浏览器登录态和 Agent 工具链生态项目
 - 优化静态页屏效比，移除读者视图中的来源权限提示
 - 静态页除页内锚点外的链接默认在新窗口打开，避免读者离开导航页
 - 新增 `npm run check`，用于校验 JSON、README、详情页和静态页一致性

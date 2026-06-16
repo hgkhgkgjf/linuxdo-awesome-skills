@@ -534,11 +534,11 @@
       </div>
       <div class="stats" aria-label="索引统计">
         <div class="stat">
-          <strong id="skill-count">15</strong>
+          <strong id="skill-count">18</strong>
           <span>已整理技能</span>
         </div>
         <div class="stat">
-          <strong id="source-count">15</strong>
+          <strong id="source-count">18</strong>
           <span>论坛来源已关联</span>
         </div>
       </div>
@@ -585,6 +585,10 @@
         <button class="chip" type="button" data-filter="CLI 生成" aria-pressed="false">CLI 生成</button>
         <button class="chip" type="button" data-filter="kimi-webbridge" aria-pressed="false">kimi-webbridge</button>
         <button class="chip" type="button" data-filter="浏览器自动化" aria-pressed="false">浏览器自动化</button>
+        <button class="chip" type="button" data-filter="CLI 枢纽" aria-pressed="false">CLI 枢纽</button>
+        <button class="chip" type="button" data-filter="CLI Hub" aria-pressed="false">CLI Hub</button>
+        <button class="chip" type="button" data-filter="真实浏览器" aria-pressed="false">真实浏览器</button>
+        <button class="chip" type="button" data-filter="MCP" aria-pressed="false">MCP</button>
         <button class="chip" type="button" data-filter="元技能" aria-pressed="false">元技能</button>
         <button class="chip" type="button" data-filter="技能树" aria-pressed="false">技能树</button>
         <button class="chip" type="button" data-filter="Self-evolving Agent" aria-pressed="false">自进化</button>
@@ -792,6 +796,48 @@
         detail: "docs/skills/agent-cli-creator.md",
         repository: "https://github.com/better-world-ai/agent-cli-creator",
         stars: "https://github.com/better-world-ai/agent-cli-creator/stargazers",
+        source: "https://linux.do/t/topic/2269051",
+        forumIcon: "https://cdn3.ldstatic.com/optimized/4X/c/c/d/ccd8c210609d498cbeb3d5201d4c259348447562_2_32x32.png"
+      },
+      {
+        name: "OpenCLI",
+        author: "jackwener",
+        oneLiner: "把网站、真实浏览器会话、Electron 应用和本地工具统一封装成 Agent 可调用的 CLI。",
+        tags: ["网页 CLI", "浏览器自动化", "真实浏览器", "CLI 枢纽", "站点适配器", "Browser Bridge", "桌面应用", "Agent 工具链", "元技能"],
+        prerequisites: ["Node.js 20+", "OpenCLI npm 包", "Browser Bridge Chrome 扩展", "需要登录态时先在真实浏览器登录"],
+        useCases: ["调用 100+ 站点命令", "用真实 Chrome 登录态操作网页", "为新网站创建 adapter", "接入外部 CLI 和 Electron 应用", "用网络捕获和 sitemap 辅助站点自动化"],
+        limitations: ["依赖 Node.js、OpenCLI 和浏览器扩展连通性", "真实登录态写操作有实际副作用", "站点 adapter 会随网站结构和登录状态变化失效", "高质量 adapter 需要字段核对和 verify"],
+        detail: "docs/skills/opencli.md",
+        repository: "https://github.com/jackwener/OpenCLI",
+        stars: "https://github.com/jackwener/OpenCLI/stargazers",
+        source: "https://linux.do/t/topic/2269051",
+        forumIcon: "https://cdn3.ldstatic.com/optimized/4X/c/c/d/ccd8c210609d498cbeb3d5201d4c259348447562_2_32x32.png"
+      },
+      {
+        name: "CLI-Anything",
+        author: "HKUDS",
+        oneLiner: "把专业软件能力包装为 Agent 原生 CLI，并通过 CLI-Hub 搜索、安装和组合跨工具工作流。",
+        tags: ["软件 CLI", "CLI Hub", "Agent Native", "专业软件", "工作流矩阵", "CLI 市场", "Python", "Agent 工具链", "元技能"],
+        prerequisites: ["Python 与 pip", "cli-anything-hub", "具体软件或后端依赖", "按任务安装对应 CLI"],
+        useCases: ["搜索专业软件 CLI", "按 capability 最小化安装工具", "组合 matrix 工作流", "用 JSON 输出驱动自动化", "为软件补齐 Agent 可调用接口"],
+        limitations: ["不同 CLI 依赖不同软件、包、系统库或云服务", "复杂 matrix 需要先 preflight", "部分专业软件需要本机安装、授权或 GUI/渲染环境", "实时目录和包生态会变化"],
+        detail: "docs/skills/cli-anything.md",
+        repository: "https://github.com/HKUDS/CLI-Anything",
+        stars: "https://github.com/HKUDS/CLI-Anything/stargazers",
+        source: "https://linux.do/t/topic/2269051",
+        forumIcon: "https://cdn3.ldstatic.com/optimized/4X/c/c/d/ccd8c210609d498cbeb3d5201d4c259348447562_2_32x32.png"
+      },
+      {
+        name: "bb-browser",
+        author: "epiral",
+        oneLiner: "把真实 Chrome 登录态变成 CLI 和 MCP，让 Agent 直接读取网页、带登录态请求和操作页面。",
+        tags: ["浏览器自动化", "真实浏览器", "登录态", "Browser API", "MCP", "网页 CLI", "站点适配器", "信息提取", "Agent 工具链"],
+        prerequisites: ["Node.js 18+", "bb-browser npm 包", "可连接的真实 Chrome", "需要私域数据时先登录对应网站"],
+        useCases: ["用真实浏览器登录态获取网页信息", "执行点击、填写、截图等浏览器操作", "运行 site adapter", "在浏览器上下文执行带 Cookie 的 fetch", "通过 MCP 接入 AI 工具"],
+        limitations: ["依赖真实浏览器、本地 daemon 或 MCP 运行状态", "私域数据和写操作需要明确授权", "site adapter 会受网页结构和权限变化影响", "复杂新站点 CLI 化仍需要维护"],
+        detail: "docs/skills/bb-browser.md",
+        repository: "https://github.com/epiral/bb-browser",
+        stars: "https://github.com/epiral/bb-browser/stargazers",
         source: "https://linux.do/t/topic/2269051",
         forumIcon: "https://cdn3.ldstatic.com/optimized/4X/c/c/d/ccd8c210609d498cbeb3d5201d4c259348447562_2_32x32.png"
       },

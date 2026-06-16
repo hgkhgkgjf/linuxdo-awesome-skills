@@ -80,6 +80,10 @@
 - `agents-progressive-disclosure` 必须作为“元技能与方法论 / Agent 指令治理”展示：它不生成业务代码或报告，而是把臃肿的 `AGENTS.md`、`CLAUDE.md`、`GEMINI.md` 等重构为精简入口文件和按需 docs/rules 路由。它和 `GenericAgent` 的区别是后者关注 Agent 自进化技能树，本条关注人为维护指令文件的上下文压缩、冲突扫描和规则保留验证。
 - 第十五条收录是 `agent-cli-creator`，来源于 Linux.do 话题 `2269051` 和 GitHub 项目 `better-world-ai/agent-cli-creator`，内容基于推荐来源、原项目 README、README_EN 与 `SKILL.md` 综合提炼，不保存帖子原文。
 - `agent-cli-creator` 必须作为“元技能与方法论 / Agent 工具链 / 网站 CLI 生成”展示：它通过 `kimi-webbridge` 复用真实 Chrome 登录态，先做站点考古，再为具体网站生成可复用 CLI，并可生成伴随 skill。它和 `agents-progressive-disclosure` 的区别是后者治理指令文件；和 `GenericAgent` 的区别是后者是完整自进化 Agent 框架；和 `wechat-article-reader` 的区别是后者是固定公众号读取工具，本条面向任意具体网站定制 CLI。
+- 第十六至十八条收录是 `OpenCLI`、`CLI-Anything`、`bb-browser`，均来源于 Linux.do 话题 `2269051` 的同一组推荐。三者都应作为“元技能与方法论 / Agent 工具链 / CLI 化生态”展示，不要混入普通内容读取类。
+- `OpenCLI` 对外介绍重点应放在“网站/真实浏览器会话/Electron 应用/本地工具统一 CLI 枢纽、Browser Bridge、100+ 站点 adapter、opencli-browser、opencli-adapter-author、verify/trace/站点记忆”。它和 `agent-cli-creator` 的区别是：后者是生成某网站 CLI 的流程，OpenCLI 已提供完整运行时和官方 skills。
+- `CLI-Anything` 对外介绍重点应放在“专业软件 Agent Native、CLI-Hub 市场、matrix 工作流、按 capability/preflight 最小化安装、cli-anything-* 独立包、JSON 输出”。它和 `OpenCLI` 的区别是：OpenCLI 偏网站/浏览器/桌面应用，CLI-Anything 偏专业软件和工作流矩阵。
+- `bb-browser` 对外介绍重点应放在“你的浏览器就是 API、真实 Chrome 登录态、CLI + MCP、snapshot/click/fill/eval/fetch/network、bb-sites adapter”。它和 `OpenCLI` 都是真实浏览器路线，但 bb-browser 更偏轻量执行层，OpenCLI 更偏完整 CLI 枢纽与 adapter 生态。
 - 仓库对外内容默认使用中文；底层 JSON 字段名保持英文，避免后续脚本维护成本升高。
 - 后续优先在现有 JSON 结构上补字段和演进，不创建平行台账文件。
 - 结构化数据中的 `skill_description` 用于保存可展示的原始 skill description，`display_label` 统一为 `description`，服务 README 和未来静态页扩展。

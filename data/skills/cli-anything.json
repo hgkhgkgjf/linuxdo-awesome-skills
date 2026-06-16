@@ -1,0 +1,78 @@
+{
+  "id": "cli-anything",
+  "name": "CLI-Anything",
+  "author": "HKUDS",
+  "language": "zh-CN",
+  "repository": "https://github.com/HKUDS/CLI-Anything",
+  "detail_page": "docs/skills/cli-anything.md",
+  "verified_at": "2026-06-16",
+  "verification_sources": [
+    "https://linux.do/t/topic/2269051",
+    "https://github.com/HKUDS/CLI-Anything",
+    "https://github.com/HKUDS/CLI-Anything/blob/main/README_CN.md",
+    "https://github.com/HKUDS/CLI-Anything/blob/main/cli-hub-meta-skill/SKILL.md"
+  ],
+  "source": {
+    "type": "linux_do_topic_reply",
+    "topic_id": "2269051",
+    "topic_url": "https://linux.do/t/topic/2269051",
+    "access_state": "publicly accessible during curation",
+    "captured_from": "summary extracted from Linux.do recommendation thread, repository README_CN, repository metadata, and cli-hub-meta-skill",
+    "captured_at": "2026-06-16"
+  },
+  "tags": [
+    "软件 CLI",
+    "CLI Hub",
+    "Agent Native",
+    "专业软件",
+    "工作流矩阵",
+    "CLI 市场",
+    "Python",
+    "Agent 工具链"
+  ],
+  "one_liner": "把专业软件能力包装为 Agent 原生 CLI，并通过 CLI-Hub 搜索、安装和组合跨工具工作流。",
+  "prerequisites": [
+    "Python 与 pip",
+    "cli-anything-hub",
+    "具体软件或后端依赖",
+    "按任务安装对应 CLI"
+  ],
+  "skill_description": {
+    "source": "cli-hub-meta-skill/SKILL.md frontmatter description",
+    "language": "zh-CN",
+    "translated_from": "en",
+    "display_label": "description",
+    "text": "发现面向专业软件的 Agent 原生 CLI。访问实时目录，为创意工作流、生产力、AI 等场景查找工具。"
+  },
+  "use_cases": [
+    "搜索可由 Agent 调用的专业软件 CLI",
+    "按类别安装图像、视频、3D、办公、AI 等工具",
+    "用工作流矩阵组合多个 provider 完成复杂任务",
+    "安装单个 cli-anything-* 包并用 JSON 输出驱动自动化",
+    "为已有软件补齐 Agent 可调用接口"
+  ],
+  "summary": "CLI-Anything 的核心主张是让专业软件 Agent Native。它通过 CLI-Hub 提供软件 CLI 目录、搜索、安装、preflight、matrix workflow 等能力：Agent 可以先查询当前任务需要什么能力，再只安装必要 provider 或 recipe，调用独立的 cli-anything-* 包执行真实软件或后端能力，并用 JSON 输出接入后续推理。它更像“专业软件 CLI 市场 + 工作流矩阵”，不是单一网站自动化工具。",
+  "workflow": [
+    "安装 cli-anything-hub",
+    "用 cli-hub list/search/can 查找工具或能力",
+    "用 matrix preflight 检查当前环境可用 provider",
+    "按 capability、recipe 或 only 范围最小化安装",
+    "安装后读取对应本地 SKILL.md 和 provider 选择规则",
+    "调用 cli-anything-<name> 的 one-shot 或 REPL 命令",
+    "使用 --json 输出服务 Agent 后续处理",
+    "用 doctor、resume 或 preview 工具检查安装和产物"
+  ],
+  "limitations": [
+    "不同 CLI 依赖不同软件、Python 包、系统库或云服务，不能一次性假设全可用",
+    "matrix 工作流需要先 preflight，避免为单一任务批量安装过多工具",
+    "部分专业软件仍需要本机安装、授权或 GUI/渲染环境",
+    "实时目录和包生态会变化，使用前应确认当前工具可用性"
+  ],
+  "notes": [
+    "同一 Linux.do 推荐来源还推荐了 agent-cli-creator、OpenCLI 和 bb-browser，均属于 Agent 工具链。",
+    "CLI-Anything 与 OpenCLI 的区别：OpenCLI 更聚焦网站、浏览器和桌面应用 CLI 化；CLI-Anything 更聚焦专业软件、创意/生产力工具和能力矩阵。",
+    "CLI-Anything 与 agent-cli-creator 的区别：agent-cli-creator 是为某个网站生成 CLI 的流程，CLI-Anything 是查找和安装已有专业软件 CLI 的生态。",
+    "本机 Codex 安装时优先安装 `cli-hub-meta-skill`，它负责引导发现和安装具体 CLI。",
+    "帖子原文未收录到仓库，当前记录仅保留提炼后的结构化信息。"
+  ]
+}
