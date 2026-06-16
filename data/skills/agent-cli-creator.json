@@ -1,0 +1,81 @@
+{
+  "id": "agent-cli-creator",
+  "name": "agent-cli-creator",
+  "author": "better-world-ai",
+  "language": "zh-CN",
+  "repository": "https://github.com/better-world-ai/agent-cli-creator",
+  "detail_page": "docs/skills/agent-cli-creator.md",
+  "verified_at": "2026-06-16",
+  "verification_sources": [
+    "https://linux.do/t/topic/2269051",
+    "https://github.com/better-world-ai/agent-cli-creator",
+    "https://github.com/better-world-ai/agent-cli-creator/blob/main/README.md",
+    "https://github.com/better-world-ai/agent-cli-creator/blob/main/README_EN.md",
+    "https://github.com/better-world-ai/agent-cli-creator/blob/main/SKILL.md"
+  ],
+  "source": {
+    "type": "linux_do_topic_reply",
+    "topic_id": "2269051",
+    "topic_url": "https://linux.do/t/topic/2269051",
+    "access_state": "publicly accessible during curation",
+    "captured_from": "summary extracted from Linux.do recommendation thread, repository README, README_EN, and SKILL.md",
+    "captured_at": "2026-06-16"
+  },
+  "tags": [
+    "网页 CLI",
+    "浏览器自动化",
+    "kimi-webbridge",
+    "CLI 生成",
+    "Chrome 登录态",
+    "站点考古",
+    "工具生成",
+    "伴随 Skill"
+  ],
+  "one_liner": "把你在某个网页上反复做的操作交给 Agent 分析，并生成可复用 CLI，让后续 Agent 直接通过真实 Chrome 登录态调用。",
+  "prerequisites": [
+    "目标网站 URL 和首批 1-3 个功能",
+    "kimi-webbridge 浏览器插件与本地 skill",
+    "已登录目标网站的 Chrome 会话",
+    "Go/Python/Node 等 CLI 实现语言"
+  ],
+  "skill_description": {
+    "source": "SKILL.md frontmatter description",
+    "language": "zh-CN",
+    "translated_from": "en",
+    "display_label": "description",
+    "text": "当用户想要构建一个 CLI 工具，通过 kimi-webbridge 自动化特定网站上的浏览器交互时使用。用户说“为某个网站创建 CLI”、“构建自动化某网站的工具”，或希望通过 AI agent 以编程方式控制网站时触发。"
+  },
+  "use_cases": [
+    "为特定网站生成可复用 CLI",
+    "复用真实 Chrome 登录态完成网页操作",
+    "把读取信息流、搜索、详情页等读操作封装为命令",
+    "把发帖、评论、收藏、点赞等写操作封装为命令",
+    "让后续 Agent 通过 CLI 而不是重复浏览器操作完成任务",
+    "为生成出的 CLI 再创建伴随 skill"
+  ],
+  "summary": "agent-cli-creator 是一个教 Agent “做 CLI”的 skill：用户给出目标网站和首批 1-3 个功能后，Agent 会先确认语言、登录需求和功能范围，再借助 kimi-webbridge 使用真实 Chrome 登录态进行站点考古，找到可在浏览器会话中验证的接口、请求头和响应结构；随后按语言脚手架实现 CLI 命令，统一输出 JSON 契约，并在 CLI 可用后生成一个伴随 skill，告诉未来 Agent 如何使用这个新工具。",
+  "workflow": [
+    "确认 kimi-webbridge 已运行且浏览器扩展已连接",
+    "访谈目标网站 URL、实现语言、登录需求和首批 1-3 个功能",
+    "解释先做少量功能验证端到端链路，避免无用站点考古",
+    "对每个功能执行站点探索，确认 API endpoint、必要 headers、响应结构和可工作的 evaluate 调用",
+    "选择语言并搭建 CLI 项目脚手架，Go 为推荐默认模板",
+    "优先实现 login-status 和读命令，再实现具有副作用的写命令",
+    "每实现一个命令立即验证 --help、成功 JSON 和错误路径",
+    "CLI 可用后生成伴随 skill，供未来 Agent 直接调用这个 CLI"
+  ],
+  "limitations": [
+    "它不是万能接口挖掘器，不承诺穷举某网站所有前端交互接口",
+    "强依赖 kimi-webbridge、Chrome 扩展和用户真实登录态",
+    "站点结构、反爬策略、权限和前端实现变化都可能导致 CLI 失效",
+    "写操作有真实副作用，需要逐项确认和错误路径验证",
+    "更适合先做 1-3 个高频功能，不适合一次性要求完整复刻复杂网站"
+  ],
+  "notes": [
+    "推荐来源是 Linux.do 话题 2269051 中关于“将某个网页 CLI 化”的讨论，楼层中同时提到了 OpenCLI、bb-browser、CLI-Anything 等相近项目。",
+    "该项目与 agents-progressive-disclosure 都属于 Agent 工具链建设；前者生成面向网站操作的 CLI，后者整理 Agent 指令文件。",
+    "该项目与 GenericAgent 不同：GenericAgent 是自进化 Agent 框架，agent-cli-creator 是把特定网站操作固化成可复用命令行工具的工作流。",
+    "该项目与 wechat-article-reader 不同：wechat-article-reader 是固定公众号读取工具，agent-cli-creator 是为任意具体网站定制 CLI 的生成器。",
+    "帖子原文未收录到仓库，当前记录仅保留提炼后的结构化信息。"
+  ]
+}

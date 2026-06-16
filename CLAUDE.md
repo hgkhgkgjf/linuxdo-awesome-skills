@@ -78,6 +78,8 @@
 - `deep-research` 对外介绍重点应放在“/research 主题生成深度调研报告、19 种语言、quick/standard/deep 三档深度、在线 SearXNG + Scrapling 抓取、本地 MD/TXT/PDF/DOCX 资料、并行章节撰写、引用转换和质量检查”。它和 `graphify` 都处理资料，但本条产物是 Markdown 调研报告而不是 Neo4j 图谱；它和 `karpathy-llm-wiki` 的区别是偏主题报告生成，不是长期 wiki 维护。
 - 第十四条收录是 `agents-progressive-disclosure`，来源于 Linux.do 话题 `2263095` 和 GitHub 项目 `Caph-dev/agents-progressive-disclosure`，内容基于 Linux.do 话题、原项目 README、`SKILL.md` 和 GitHub 元数据综合提炼，不保存帖子原文。
 - `agents-progressive-disclosure` 必须作为“元技能与方法论 / Agent 指令治理”展示：它不生成业务代码或报告，而是把臃肿的 `AGENTS.md`、`CLAUDE.md`、`GEMINI.md` 等重构为精简入口文件和按需 docs/rules 路由。它和 `GenericAgent` 的区别是后者关注 Agent 自进化技能树，本条关注人为维护指令文件的上下文压缩、冲突扫描和规则保留验证。
+- 第十五条收录是 `agent-cli-creator`，来源于 Linux.do 话题 `2269051` 和 GitHub 项目 `better-world-ai/agent-cli-creator`，内容基于推荐来源、原项目 README、README_EN 与 `SKILL.md` 综合提炼，不保存帖子原文。
+- `agent-cli-creator` 必须作为“元技能与方法论 / Agent 工具链 / 网站 CLI 生成”展示：它通过 `kimi-webbridge` 复用真实 Chrome 登录态，先做站点考古，再为具体网站生成可复用 CLI，并可生成伴随 skill。它和 `agents-progressive-disclosure` 的区别是后者治理指令文件；和 `GenericAgent` 的区别是后者是完整自进化 Agent 框架；和 `wechat-article-reader` 的区别是后者是固定公众号读取工具，本条面向任意具体网站定制 CLI。
 - 仓库对外内容默认使用中文；底层 JSON 字段名保持英文，避免后续脚本维护成本升高。
 - 后续优先在现有 JSON 结构上补字段和演进，不创建平行台账文件。
 - 结构化数据中的 `skill_description` 用于保存可展示的原始 skill description，`display_label` 统一为 `description`，服务 README 和未来静态页扩展。
