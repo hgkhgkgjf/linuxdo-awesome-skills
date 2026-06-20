@@ -106,6 +106,11 @@
       fill: currentColor;
     }
 
+    .nav-badge {
+      display: block;
+      height: 28px;
+    }
+
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 1fr) 260px;
@@ -517,7 +522,9 @@
       <nav class="topnav" aria-label="页面导航">
         <a href="#skills">技能清单</a>
         <a href="README.md" target="_blank" rel="noopener noreferrer">README</a>
-        <a href="https://deepwiki.com/jochne/linuxdo-awesome-skills" target="_blank" rel="noopener noreferrer">DeepWiki</a>
+        <a href="https://deepwiki.com/jochne/linuxdo-awesome-skills" target="_blank" rel="noopener noreferrer" aria-label="打开 DeepWiki 项目解读">
+          <img class="nav-badge" src="https://img.shields.io/badge/DeepWiki-项目解读-2563eb?style=for-the-badge" alt="DeepWiki 项目解读">
+        </a>
         <a href="docs/collection-policy.md" target="_blank" rel="noopener noreferrer">收录规则</a>
         <a class="repo-link" href="https://github.com/jochne/linuxdo-awesome-skills" target="_blank" rel="noopener noreferrer" aria-label="打开 GitHub 仓库 jochne/linuxdo-awesome-skills">
           <svg aria-hidden="true" viewBox="0 0 16 16">

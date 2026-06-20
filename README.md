@@ -5,7 +5,7 @@ Linux.do 社区用户发布的 skills 导航。这里按“能做什么、前置
 ## 网页入口
 
 - [在线导航页面](https://linuxdo-awesome-skills.tencents.ltd/)
-- [DeepWiki 项目解读](https://deepwiki.com/jochne/linuxdo-awesome-skills)
+- [![DeepWiki](https://img.shields.io/badge/DeepWiki-项目解读-2563eb?style=for-the-badge)](https://deepwiki.com/jochne/linuxdo-awesome-skills)
 
 ## 技能清单
 
