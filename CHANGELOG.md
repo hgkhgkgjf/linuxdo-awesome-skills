@@ -30,4 +30,5 @@
 - 新增第十六至十八条 `OpenCLI`、`CLI-Anything`、`bb-browser`，补充同源推荐中的网页/软件 CLI 化、真实浏览器登录态和 Agent 工具链生态项目
 - 优化静态页屏效比，移除读者视图中的来源权限提示
 - 静态页除页内锚点外的链接默认在新窗口打开，避免读者离开导航页
+- README 与静态页新增 DeepWiki 项目解读入口
 - 新增 `npm run check`，用于校验 JSON、README、详情页和静态页一致性
