@@ -1,0 +1,32 @@
+site_name: Linux.do Awesome Skills
+site_description: Linux.do 社区用户发布的 skills 清单与导航
+repo_url: https://github.com/jochne/linuxdo-awesome-skills
+repo_name: jochne/linuxdo-awesome-skills
+docs_dir: docs
+
+theme:
+  name: readthedocs
+  language: zh
+
+nav:
+  - 首页: index.md
+  - 收录规则: collection-policy.md
+  - 技能详情:
+      - image-to-code-skill: skills/image-to-code-skill.md
+      - guizang-ppt-skill: skills/guizang-ppt-skill.md
+      - awesome-ppt-skills: skills/awesome-ppt-skills.md
+      - ppt-master: skills/ppt-master.md
+      - gpt-image2-ppt-skills: skills/gpt-image2-ppt-skills.md
+      - banana-slides: skills/banana-slides.md
+      - thesis-defense-pptx-skill: skills/thesis-defense-pptx-skill.md
+      - GordenPPTSkill: skills/gorden-ppt-skill.md
+      - karpathy-llm-wiki: skills/karpathy-llm-wiki.md
+      - graphify: skills/graphify.md
+      - deep-research: skills/deep-research.md
+      - wechat-article-reader: skills/wechat-article-reader.md
+      - agents-progressive-disclosure: skills/agents-progressive-disclosure.md
+      - agent-cli-creator: skills/agent-cli-creator.md
+      - OpenCLI: skills/opencli.md
+      - CLI-Anything: skills/cli-anything.md
+      - bb-browser: skills/bb-browser.md
+      - GenericAgent: skills/generic-agent.md
